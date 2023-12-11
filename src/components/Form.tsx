@@ -1,4 +1,5 @@
 import { Personagem } from '@/models/rpgDTO'
+import { Atributes } from './Atributes'
 import { Header } from './Header'
 
 interface Persona {
@@ -9,33 +10,12 @@ export function Form({ persona }: Persona) {
   return (
     <div
       key={persona.nome}
-      className="max-w-max mx-auto bg-gray-700 shadow-md rounded-lg overflow-hidden mb-8"
+      className="max-w-max mx-auto w-full bg-gray-700 shadow-md rounded-lg overflow-hidden mb-8 md:max-w-2xl lg:max-w-4xl"
     >
       <Header persona={persona} />
 
       <div className="p-4">
-        <div className="grid grid-cols-2 gap-4 mb-4">
-          <div>
-            <h3 className="text-lg font-semibold mb-2">Informações Gerais</h3>
-            <p>
-              <span className="font-semibold">Raça:</span> {persona.raca}
-            </p>
-            <p>
-              <span className="font-semibold">Experiência:</span>{' '}
-              {persona.experiencia}
-            </p>
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold mb-2">Atributos</h3>
-            <p>
-              <span className="font-semibold">HP:</span> {persona.atributos.hp}
-            </p>
-            <p>
-              <span className="font-semibold">MP:</span> {persona.atributos.mp}
-            </p>
-            {/* Adicionar outros atributos aqui */}
-          </div>
-        </div>
+        <Atributes persona={persona} />
         <div>
           <h3 className="text-lg font-semibold mb-2">Equipamentos</h3>
           <p>
