@@ -89,14 +89,13 @@ export function Atributes({ persona }: AtributesProps) {
 
             <tr className="text-left text-sm font-medium text-gray-900">
               <td className="py-2">5:</td>
-              <td className="py-2">arma</td>
+              <td className="py-2">{persona.equipamentos.armaEsquerda}</td>
             </tr>
 
             <tr className="text-left text-sm font-medium text-gray-900">
               <td className="py-2">6:</td>
-              <td className="py-2">arma</td>
+              <td className="py-2">{persona.equipamentos.armaDireita}</td>
             </tr>
-            {/* Adicionar outros atributos aqui */}
           </tbody>
         </table>
 
@@ -110,15 +109,23 @@ export function Atributes({ persona }: AtributesProps) {
           </thead>
 
           <tbody className="bg-white divide-y divide-gray-200">
-            {persona.fobias.map((fobia, index) => (
-              <tr
-                key={index}
-                className="text-left text-sm font-medium text-gray-900"
-              >
-                <td className="">{fobia.monstro}:</td>
-                <td className="">{fobia.quantidadeParaSuperar}</td>
+            {persona.fobias.length > 0 ? (
+              persona.fobias.map((fobia, index) => (
+                <tr
+                  key={index}
+                  className="text-left text-sm font-medium text-gray-900"
+                >
+                  <td className="">{fobia.monstro}:</td>
+                  <td className="">{fobia.quantidadeParaSuperar}</td>
+                </tr>
+              ))
+            ) : (
+              <tr className="text-left text-sm font-medium text-gray-900">
+                <td className="" align="center">
+                  Nenhuma
+                </td>
               </tr>
-            ))}
+            )}
           </tbody>
         </table>
 

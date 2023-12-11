@@ -15,6 +15,8 @@ export interface Equipamentos {
   peito?: string
   luvas?: string
   botas?: string
+  armaEsquerda?: string
+  armaDireita?: string
 }
 
 // Interface para as fobias do personagem
@@ -42,6 +44,7 @@ export interface Personagem {
   raca: string
   level: number
   experiencia: number
+  gold: number
   atributos: Atributos
   equipamentos: Equipamentos
   fobias: Fobias[]

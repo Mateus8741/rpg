@@ -6,6 +6,7 @@ export const PersonaFixas: Personagem[] = [
     raca: 'Elfo',
     level: 10,
     experiencia: 5000,
+    gold: 1000,
     atributos: {
       hp: 100,
       mp: 80,
@@ -20,6 +21,8 @@ export const PersonaFixas: Personagem[] = [
       peito: 'Armadura de Aço',
       luvas: 'Luvas Ágeis',
       botas: 'Botas do Viajante',
+      armaEsquerda: 'Espada Longa',
+      armaDireita: 'Escudo de Ferro',
     },
     fobias: [
       { monstro: 'Espectro Sombrio', quantidadeParaSuperar: 5 },
@@ -41,6 +44,7 @@ export const PersonaFixas: Personagem[] = [
     raca: 'Humano',
     level: 8,
     experiencia: 4200,
+    gold: 800,
     atributos: {
       hp: 90,
       mp: 70,
@@ -51,10 +55,12 @@ export const PersonaFixas: Personagem[] = [
       inteligencia: 15,
     },
     equipamentos: {
-      cabeca: 'Elmo Reforçado',
+      cabeca: 'Elmo ',
       peito: 'Túnica de Tecido Mágico',
       luvas: 'Luvas Resistentes',
-      botas: 'Botas de Velocidade',
+      botas: 'Botas de rapidez',
+      armaEsquerda: 'Espada Longa',
+      armaDireita: 'Escudo de Ferro',
     },
     fobias: [
       { monstro: 'Esqueleto Errante', quantidadeParaSuperar: 4 },
@@ -76,6 +82,7 @@ export const PersonaFixas: Personagem[] = [
     raca: 'Anão',
     level: 12,
     experiencia: 7200,
+    gold: 1500,
     atributos: {
       hp: 120,
       mp: 60,
@@ -90,6 +97,8 @@ export const PersonaFixas: Personagem[] = [
       peito: 'Cota de Malha Anã',
       luvas: 'Manoplas de Aço',
       botas: 'Botas de Resistência',
+      armaEsquerda: 'Espada Longa',
+      armaDireita: 'Escudo de Ferro',
     },
     fobias: [
       { monstro: 'Ogro Gigante', quantidadeParaSuperar: 6 },
