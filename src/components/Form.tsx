@@ -19,18 +19,6 @@ export function Form({ persona }: Persona) {
         <Atributes persona={persona} />
         <Hability persona={persona} />
         <div>
-          <h3 className="text-lg font-semibold mb-2">Equipamentos</h3>
-          <p>
-            <span className="font-semibold">Cabeça:</span>{' '}
-            {persona.equipamentos.cabeca || 'Vazio'}
-          </p>
-          <p>
-            <span className="font-semibold">Peito:</span>{' '}
-            {persona.equipamentos.peito || 'Vazio'}
-          </p>
-          {/* Adicionar outros equipamentos aqui */}
-        </div>
-        <div>
           <h3 className="text-lg font-semibold mb-2">Inventário</h3>
           {persona.inventario.map((item, index) => (
             <p key={index}>
@@ -50,7 +38,6 @@ export function Form({ persona }: Persona) {
             {persona.defesaMaxima}
           </p>
         </div>
-        He
       </div>
     </div>
   )
