@@ -15,37 +15,15 @@ export function Inventory({ persona }: InventoryProps) {
             <th className="text-lg  font-semibold text-center">Quantidade</th>
           </tr>
         </thead>
-        <tbody className="bg-white divide-y divide-gray-200">
-          <tr className="text-left text-sm font-medium text-gray-900">
-            <td className="py-2">Cabeça</td>
-            <td className="py-2">{persona.equipamentos.cabeca || 'Vazio'}</td>
-          </tr>
 
-          <tr className="text-left text-sm font-medium text-gray-900">
-            <td className="py-2">Peito</td>
-            <td className="py-2">{persona.equipamentos.peito || 'Vazio'}</td>
-          </tr>
-
-          <tr className="text-left text-sm font-medium text-gray-900">
-            <td className="py-2">Luvas</td>
-            <td className="py-2">{persona.equipamentos.luvas || 'Vazio'}</td>
-          </tr>
-
-          <tr className="text-left text-sm font-medium text-gray-900">
-            <td className="py-2">Botas</td>
-            <td className="py-2">{persona.equipamentos.botas || 'Vazio'}</td>
-          </tr>
-
-          <tr className="text-left text-sm font-medium text-gray-900">
-            <td className="py-2">Slot 5</td>
-            <td className="py-2">1</td>
-          </tr>
-
-          <tr className="text-left text-sm font-medium text-gray-900">
-            <td className="py-2">Slot 6</td>
-            <td className="py-2">1</td>
-          </tr>
-        </tbody>
+        {persona.inventario.map((item, index) => (
+          <tbody key={index} className="bg-white divide-y divide-gray-200">
+            <tr className="text-center text-sm font-medium text-gray-900">
+              <td className="py-2">{item.nomeItem}</td>
+              <td className="py-2">{item.quantidade}</td>
+            </tr>
+          </tbody>
+        ))}
       </table>
     </div>
   )
