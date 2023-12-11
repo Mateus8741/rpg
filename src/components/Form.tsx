@@ -1,5 +1,6 @@
 import { Personagem } from '@/models/rpgDTO'
 import { Atributes } from './Atributes'
+import { Hability } from './Hability'
 import { Header } from './Header'
 
 interface Persona {
@@ -16,6 +17,7 @@ export function Form({ persona }: Persona) {
 
       <div className="p-4">
         <Atributes persona={persona} />
+        <Hability persona={persona} />
         <div>
           <h3 className="text-lg font-semibold mb-2">Equipamentos</h3>
           <p>
@@ -27,27 +29,6 @@ export function Form({ persona }: Persona) {
             {persona.equipamentos.peito || 'Vazio'}
           </p>
           {/* Adicionar outros equipamentos aqui */}
-        </div>
-        <div>
-          <h3 className="text-lg font-semibold mb-2">Fobias</h3>
-          {persona.fobias.map((fobia, index) => (
-            <p key={index}>
-              <span className="font-semibold">Monstro:</span> {fobia.monstro},
-              <span className="ml-2 font-semibold">Superar:</span>{' '}
-              {fobia.quantidadeParaSuperar}
-            </p>
-          ))}
-        </div>
-        <div>
-          <h3 className="text-lg font-semibold mb-2">Habilidades</h3>
-          {persona.habilidades.map((habilidade, index) => (
-            <p key={index}>
-              <span className="font-semibold">{habilidade.nome}</span> -
-              <span className="ml-2">
-                Desgaste: {habilidade.desgaste}, MP: {habilidade.custoMP}
-              </span>
-            </p>
-          ))}
         </div>
         <div>
           <h3 className="text-lg font-semibold mb-2">Inventário</h3>
