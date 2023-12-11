@@ -2,6 +2,7 @@ import { Personagem } from '@/models/rpgDTO'
 
 export const PersonaFixas: Personagem[] = [
   {
+    id: 1,
     nome: 'Aldar',
     raca: 'Elfo',
     level: 10,
@@ -40,6 +41,7 @@ export const PersonaFixas: Personagem[] = [
     ],
   },
   {
+    id: 2,
     nome: 'Elena',
     raca: 'Humano',
     level: 8,
@@ -78,6 +80,7 @@ export const PersonaFixas: Personagem[] = [
     ],
   },
   {
+    id: 3,
     nome: 'Gorim',
     raca: 'Anão',
     level: 12,

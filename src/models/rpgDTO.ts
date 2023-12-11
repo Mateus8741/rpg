@@ -40,6 +40,7 @@ export interface Inventario {
 
 // Interface para o personagem em geral
 export interface Personagem {
+  id: number
   nome: string
   raca: string
   level: number
