@@ -1,126 +1,126 @@
 {
-    "herois": [
+    "heroes": [
       {
         "id": 1,
-        "nome": "Aldar",
-        "raca": "Elfo",
+        "name": "Aldar",
+        "race": "Elfo",
         "level": 10,
-        "experiencia": 5000,
+        "exp": 5000,
         "gold": 1000,
         "status": {
-          "ataqueMaximo": 25,
-          "defesaMaxima": 30
+          "maxAtk": 25,
+          "maxDef": 30
         },
-        "atributos": {
+        "attributes": {
           "hp": 100,
           "mp": 80,
-          "forca": 12,
-          "agilidade": 18,
-          "destreza": 15,
-          "constituicao": 14,
-          "inteligencia": 16
+          "str": 12,
+          "agi": 18,
+          "dex": 15,
+          "con": 14,
+          "int": 16
         },
-        "equipamentos": {
-          "cabeca": "Elmo do Poder",
-          "peito": "Armadura de Aço",
-          "luvas": "Luvas Ágeis",
-          "botas": "Botas do Viajante",
-          "armaEsquerda": "Espada Longa",
-          "armaDireita": "Escudo de Ferro"
+        "equip": {
+          "head": "Elmo do Poder",
+          "body": "Armadura de Aço",
+          "hands": "Luvas Ágeis",
+          "feets": "Botas do Viajante",
+          "LWeapon": "Espada Longa",
+          "RWeapon": "Escudo de Ferro"
         },
-        "fobias": [
-          { "monstro": "Espectro Sombrio", "quantidadeParaSuperar": 5 },
-          { "monstro": "Aracnídeo Gigante", "quantidadeParaSuperar": 3 }
+        "phobias": [
+          { "monster": "Espectro Sombrio", "quantity": 5 },
+          { "monster": "Aracnídeo Gigante", "quantity": 3 }
         ],
-        "habilidades": [
-          { "nome": "Flecha Flamejante", "desgaste": 10, "custoMP": 5 },
-          { "nome": "Golpe Preciso", "desgaste": 8, "custoMP": 4 }
+        "skills": [
+          { "name": "Flecha Flamejante", "wear": 10, "mpCost": 5 },
+          { "name": "Golpe Preciso", "wear": 8, "mpCost": 4 }
         ],
-        "inventario": [
-          { "nomeItem": "Poção de Cura", "quantidade": 3 },
-          { "nomeItem": "Poção de Mana", "quantidade": 2 }
+        "inventory": [
+          { "name": "Poção de Cura", "quantity": 3 },
+          { "name": "Poção de Mana", "quantity": 2 }
         ]
       },
       {
         "id": 2,
-        "nome": "Elena",
-        "raca": "Humano",
+        "name": "Elena",
+        "race": "Humano",
         "level": 8,
-        "experiencia": 4200,
+        "exp": 4200,
         "gold": 800,
         "status": {
-          "ataqueMaximo": 22,
-          "defesaMaxima": 28
+          "maxAtk": 22,
+          "maxDef": 28
         },
-        "atributos": {
+        "attributes": {
           "hp": 90,
           "mp": 70,
-          "forca": 14,
-          "agilidade": 16,
-          "destreza": 13,
-          "constituicao": 16,
-          "inteligencia": 15
+          "str": 14,
+          "agi": 16,
+          "dex": 13,
+          "con": 16,
+          "int": 15
         },
-        "equipamentos": {
-          "cabeca": "Elmo ",
-          "peito": "Túnica de Tecido Mágico",
-          "luvas": "Luvas Resistentes",
-          "botas": "Botas de rapidez",
-          "armaEsquerda": "Espada Longa",
-          "armaDireita": "Escudo de Ferro"
+        "equip": {
+          "head": "Elmo ",
+          "body": "Túnica de Tecido Mágico",
+          "hands": "Luvas Resistentes",
+          "feets": "Botas de rapidez",
+          "LWeapon": "Espada Longa",
+          "RWeapon": "Escudo de Ferro"
         },
-        "fobias": [
-          { "monstro": "Esqueleto Errante", "quantidadeParaSuperar": 4 },
-          { "monstro": "Gárgula Sinistra", "quantidadeParaSuperar": 2 }
+        "phobias": [
+          { "monster": "Esqueleto Errante", "quantity": 4 },
+          { "monster": "Gárgula Sinistra", "quantity": 2 }
         ],
-        "habilidades": [
-          { "nome": "Curar Ferimentos", "desgaste": 12, "custoMP": 6 },
-          { "nome": "Escudo Protetor", "desgaste": 10, "custoMP": 5 }
+        "skills": [
+          { "name": "Curar Ferimentos", "wear": 12, "mpCost": 6 },
+          { "name": "Escudo Protetor", "wear": 10, "mpCost": 5 }
         ],
-        "inventario": [
-          { "nomeItem": "Poção de Cura", "quantidade": 4 },
-          { "nomeItem": "Antídoto", "quantidade": 2 }
+        "inventory": [
+          { "name": "Poção de Cura", "quantity": 4 },
+          { "name": "Antídoto", "quantity": 2 }
         ]
       },
       {
         "id": 3,
-        "nome": "Gorim",
-        "raca": "Anão",
+        "name": "Gorim",
+        "race": "Anão",
         "level": 12,
-        "experiencia": 7200,
+        "exp": 7200,
         "gold": 1500,
         "status": {
-          "ataqueMaximo": 28,
-          "defesaMaxima": 35
+          "maxAtk": 28,
+          "maxDef": 35
         },
-        "atributos": {
+        "attributes": {
           "hp": 120,
           "mp": 60,
-          "forca": 16,
-          "agilidade": 12,
-          "destreza": 14,
-          "constituicao": 18,
-          "inteligencia": 12
+          "str": 16,
+          "agi": 12,
+          "dex": 14,
+          "con": 18,
+          "int": 12
         },
-        "equipamentos": {
-          "cabeca": "Elmo de Ferro",
-          "peito": "Cota de Malha Anã",
-          "luvas": "Manoplas de Aço",
-          "botas": "Botas de Resistência",
-          "armaEsquerda": "Espada Longa",
-          "armaDireita": "Escudo de Ferro"
+        "equip": {
+          "head": "Elmo de Ferro",
+          "body": "Cota de Malha Anã",
+          "hands": "Manoplas de Aço",
+          "feets": "Botas de Resistência",
+          "LWeapon": "Espada Longa",
+          "RWeapon": "Escudo de Ferro"
         },
-        "fobias": [
-          { "monstro": "Ogro Gigante", "quantidadeParaSuperar": 6 },
-          { "monstro": "Hidra da Montanha", "quantidadeParaSuperar": 3 }
+        "phobias": [
+          { "monster": "Ogro Gigante", "quantity": 6 },
+          { "monster": "Hidra da Montanha", "quantity": 3 }
         ],
-        "habilidades": [
-          { "nome": "Investida Furiosa", "desgaste": 15, "custoMP": 7 },
-          { "nome": "Ataque Destruidor", "desgaste": 18, "custoMP": 8 }
+        "skills": [
+          { "name": "Investida Furiosa", "wear": 15, "mpCost": 7 },
+          { "name": "Ataque Destruidor", "wear": 18, "mpCost": 8 }
         ],
-        "inventario": [
-          { "nomeItem": "Poção de Força", "quantidade": 3 },
-          { "nomeItem": "Elixir de Resistência", "quantidade": 1 }
+        "inventory": [
+          { "name": "Poção de Força", "quantity": 3 },
+          { "name": "Elixir de Resistência", "quantity": 1 }
         ]
       }
     ]
