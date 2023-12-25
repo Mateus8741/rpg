@@ -1,5 +1,6 @@
 'use client'
 
+import PrimeButton from '@/components/PrimeButton'
 import { PersonaFixas } from '@/mock/personas'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
@@ -23,7 +24,7 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen text-black bg-white">
+    <main className="min-h-screen text-black bg-white dark:bg-gray-900 dark:text-white">
       <div className="flex flex-col h-screen items-center justify-center">
         <form
           className="flex w-full items-center justify-center"
@@ -45,31 +46,19 @@ export default function Home() {
               onChange={(e) => setUsername(e.target.value)}
             />
 
-            <button
-              className="flex items-center justify-center w-full p-4 mb-6 text-lg text-white bg-gray-900 rounded"
-              type="submit"
-            >
-              Ver sua ficha
-            </button>
+            <PrimeButton text="Ver sua ficha" submit />
           </div>
         </form>
 
         <div className="w-1/3">
-          <button
-            className="flex items-center justify-center w-full p-4 mb-6 text-lg text-white bg-gray-900 rounded"
-            onClick={() => router.push('/')}
-          >
-            Criar ficha
-          </button>
+          <PrimeButton text="Criar ficha" onClick={() => router.push('/')} />
         </div>
 
         <div className="w-1/3">
-          <button
-            className="flex items-center justify-center w-full p-4 mb-6 text-lg text-white bg-gray-900 rounded"
+          <PrimeButton
+            text="Ver todas as fichas"
             onClick={() => router.push('/personagens')}
-          >
-            Ver todas as fichas
-          </button>
+          />
         </div>
       </div>
     </main>
