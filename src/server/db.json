@@ -1,128 +1,248 @@
 {
-    "heroes": [
-      {
-        "id": 1,
-        "name": "Aldar",
-        "race": "Elfo",
-        "level": 10,
-        "exp": 5000,
-        "gold": 1000,
-        "status": {
-          "maxAtk": 25,
-          "maxDef": 30
-        },
-        "attributes": {
-          "hp": 100,
-          "mp": 80,
-          "str": 12,
-          "agi": 18,
-          "dex": 15,
-          "con": 14,
-          "int": 16
-        },
-        "equip": {
-          "head": "Elmo do Poder",
-          "body": "Armadura de Aço",
-          "hands": "Luvas Ágeis",
-          "feets": "Botas do Viajante",
-          "LWeapon": "Espada Longa",
-          "RWeapon": "Escudo de Ferro"
-        },
-        "phobias": [
-          { "monster": "Espectro Sombrio", "quantity": 5 },
-          { "monster": "Aracnídeo Gigante", "quantity": 3 }
-        ],
-        "skills": [
-          { "name": "Flecha Flamejante", "wear": 10, "mpCost": 5 },
-          { "name": "Golpe Preciso", "wear": 8, "mpCost": 4 }
-        ],
-        "inventory": [
-          { "name": "Poção de Cura", "quantity": 3 },
-          { "name": "Poção de Mana", "quantity": 2 }
-        ]
+  "heroes": [
+    {
+      "id": 1,
+      "name": "Aldar",
+      "race": "Elfo",
+      "level": 10,
+      "exp": 5000,
+      "gold": 1000,
+      "status": {
+        "maxAtk": 25,
+        "maxDef": 30
       },
-      {
-        "id": 2,
-        "name": "Elena",
-        "race": "Humano",
-        "level": 8,
-        "exp": 4200,
-        "gold": 800,
-        "status": {
-          "maxAtk": 22,
-          "maxDef": 28
-        },
-        "attributes": {
-          "hp": 90,
-          "mp": 70,
-          "str": 14,
-          "agi": 16,
-          "dex": 13,
-          "con": 16,
-          "int": 15
-        },
-        "equip": {
-          "head": "Elmo ",
-          "body": "Túnica de Tecido Mágico",
-          "hands": "Luvas Resistentes",
-          "feets": "Botas de rapidez",
-          "LWeapon": "Espada Longa",
-          "RWeapon": "Escudo de Ferro"
-        },
-        "phobias": [
-          { "monster": "Esqueleto Errante", "quantity": 4 },
-          { "monster": "Gárgula Sinistra", "quantity": 2 }
-        ],
-        "skills": [
-          { "name": "Curar Ferimentos", "wear": 12, "mpCost": 6 },
-          { "name": "Escudo Protetor", "wear": 10, "mpCost": 5 }
-        ],
-        "inventory": [
-          { "name": "Poção de Cura", "quantity": 4 },
-          { "name": "Antídoto", "quantity": 2 }
-        ]
+      "attributes": {
+        "hp": 100,
+        "mp": 80,
+        "str": 12,
+        "agi": 18,
+        "dex": 15,
+        "con": 14,
+        "int": 16
       },
-      {
-        "id": 3,
-        "name": "Gorim",
-        "race": "Anão",
-        "level": 12,
-        "exp": 7200,
-        "gold": 1500,
-        "status": {
-          "maxAtk": 28,
-          "maxDef": 35
+      "equip": {
+        "head": "Elmo do Poder",
+        "body": "Armadura de Aço",
+        "hands": "Luvas Ágeis",
+        "feets": "Botas do Viajante",
+        "LWeapon": "Espada Longa",
+        "RWeapon": "Escudo de Ferro"
+      },
+      "phobias": [
+        {
+          "monster": "Espectro Sombrio",
+          "quantity": 5
         },
-        "attributes": {
-          "hp": 120,
-          "mp": 60,
-          "str": 16,
-          "agi": 12,
-          "dex": 14,
-          "con": 18,
-          "int": 12
+        {
+          "monster": "Aracnídeo Gigante",
+          "quantity": 3
+        }
+      ],
+      "skills": [
+        {
+          "name": "Flecha Flamejante",
+          "wear": 10,
+          "mpCost": 5
         },
-        "equip": {
-          "head": "Elmo de Ferro",
-          "body": "Cota de Malha Anã",
-          "hands": "Manoplas de Aço",
-          "feets": "Botas de Resistência",
-          "LWeapon": "Espada Longa",
-          "RWeapon": "Escudo de Ferro"
+        {
+          "name": "Golpe Preciso",
+          "wear": 8,
+          "mpCost": 4
+        }
+      ],
+      "inventory": [
+        {
+          "name": "Poção de Cura",
+          "quantity": 3
         },
-        "phobias": [
-          { "monster": "Ogro Gigante", "quantity": 6 },
-          { "monster": "Hidra da Montanha", "quantity": 3 }
-        ],
-        "skills": [
-          { "name": "Investida Furiosa", "wear": 15, "mpCost": 7 },
-          { "name": "Ataque Destruidor", "wear": 18, "mpCost": 8 }
-        ],
-        "inventory": [
-          { "name": "Poção de Força", "quantity": 3 },
-          { "name": "Elixir de Resistência", "quantity": 1 }
-        ]
-      }
-    ]
-  }
-  
+        {
+          "name": "Poção de Mana",
+          "quantity": 2
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Elena",
+      "race": "Humano",
+      "level": 8,
+      "exp": 4200,
+      "gold": 800,
+      "status": {
+        "maxAtk": 22,
+        "maxDef": 28
+      },
+      "attributes": {
+        "hp": 90,
+        "mp": 70,
+        "str": 14,
+        "agi": 16,
+        "dex": 13,
+        "con": 16,
+        "int": 15
+      },
+      "equip": {
+        "head": "Elmo ",
+        "body": "Túnica de Tecido Mágico",
+        "hands": "Luvas Resistentes",
+        "feets": "Botas de rapidez",
+        "LWeapon": "Espada Longa",
+        "RWeapon": "Escudo de Ferro"
+      },
+      "phobias": [
+        {
+          "monster": "Esqueleto Errante",
+          "quantity": 4
+        },
+        {
+          "monster": "Gárgula Sinistra",
+          "quantity": 2
+        }
+      ],
+      "skills": [
+        {
+          "name": "Curar Ferimentos",
+          "wear": 12,
+          "mpCost": 6
+        },
+        {
+          "name": "Escudo Protetor",
+          "wear": 10,
+          "mpCost": 5
+        }
+      ],
+      "inventory": [
+        {
+          "name": "Poção de Cura",
+          "quantity": 4
+        },
+        {
+          "name": "Antídoto",
+          "quantity": 2
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Gorim",
+      "race": "Anão",
+      "level": 12,
+      "exp": 7200,
+      "gold": 1500,
+      "status": {
+        "maxAtk": 28,
+        "maxDef": 35
+      },
+      "attributes": {
+        "hp": 120,
+        "mp": 60,
+        "str": 16,
+        "agi": 12,
+        "dex": 14,
+        "con": 18,
+        "int": 12
+      },
+      "equip": {
+        "head": "Elmo de Ferro",
+        "body": "Cota de Malha Anã",
+        "hands": "Manoplas de Aço",
+        "feets": "Botas de Resistência",
+        "LWeapon": "Espada Longa",
+        "RWeapon": "Escudo de Ferro"
+      },
+      "phobias": [
+        {
+          "monster": "Ogro Gigante",
+          "quantity": 6
+        },
+        {
+          "monster": "Hidra da Montanha",
+          "quantity": 3
+        }
+      ],
+      "skills": [
+        {
+          "name": "Investida Furiosa",
+          "wear": 15,
+          "mpCost": 7
+        },
+        {
+          "name": "Ataque Destruidor",
+          "wear": 18,
+          "mpCost": 8
+        }
+      ],
+      "inventory": [
+        {
+          "name": "Poção de Força",
+          "quantity": 3
+        },
+        {
+          "name": "Elixir de Resistência",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Kraven",
+      "race": "Mago",
+      "level": 10,
+      "exp": 5000,
+      "gold": 1000,
+      "status": {
+        "maxAtk": 25,
+        "maxDef": 30
+      },
+      "attributes": {
+        "hp": 100,
+        "mp": 80,
+        "str": 12,
+        "agi": 18,
+        "dex": 15,
+        "con": 14,
+        "int": 16
+      },
+      "equip": {
+        "head": "Elmo do Poder",
+        "body": "Armadura de Aço",
+        "hands": "Luvas Ágeis",
+        "feets": "Botas do Viajante",
+        "LWeapon": "Espada Longa",
+        "RWeapon": "Escudo de Ferro"
+      },
+      "phobias": [
+        {
+          "monster": "Espectro Sombrio",
+          "quantity": 5
+        },
+        {
+          "monster": "Aracnídeo Gigante",
+          "quantity": 3
+        }
+      ],
+      "skills": [
+        {
+          "name": "Flecha Flamejante",
+          "wear": 10,
+          "mpCost": 5
+        },
+        {
+          "name": "Golpe Preciso",
+          "wear": 8,
+          "mpCost": 4
+        }
+      ],
+      "inventory": [
+        {
+          "name": "Poção de Cura",
+          "quantity": 3
+        },
+        {
+          "name": "Poção de Mana",
+          "quantity": 2
+        }
+      ]
+    }
+  ]
+}
