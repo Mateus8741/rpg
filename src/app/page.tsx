@@ -57,7 +57,7 @@ export default function Home() {
         <div className="w-1/3">
           <button
             className="flex items-center justify-center w-full p-4 mb-6 text-lg text-white bg-gray-900 rounded"
-            onClick={() => router.push('/personagens')}
+            onClick={() => router.push('/')}
           >
             Criar ficha
           </button>
