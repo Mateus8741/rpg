@@ -49,7 +49,7 @@ export default function Home() {
               className="flex items-center justify-center w-full p-4 mb-6 text-lg text-white bg-gray-900 rounded"
               type="submit"
             >
-              Ver personagem
+              Ver sua ficha
             </button>
           </div>
         </form>
@@ -59,7 +59,16 @@ export default function Home() {
             className="flex items-center justify-center w-full p-4 mb-6 text-lg text-white bg-gray-900 rounded"
             onClick={() => router.push('/personagens')}
           >
-            Ver todos os personagens
+            Criar ficha
+          </button>
+        </div>
+
+        <div className="w-1/3">
+          <button
+            className="flex items-center justify-center w-full p-4 mb-6 text-lg text-white bg-gray-900 rounded"
+            onClick={() => router.push('/personagens')}
+          >
+            Ver todas as fichas
           </button>
         </div>
       </div>
