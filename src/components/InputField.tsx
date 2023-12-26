@@ -14,12 +14,12 @@ export function InputField({
   ...rest
 }: InputFieldProps) {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 mb-3">
       <label className="block mb-2 text-xs font-bold uppercase" htmlFor={name}>
         {label}
       </label>
       <input
-        className="w-full p-2 mb-6 text-lg bg-gray-100 border border-gray-400 text-black rounded"
+        className="w-full p-2 text-lg bg-gray-100 border border-gray-400 text-black rounded"
         id={name}
         name={name}
         {...rest}
