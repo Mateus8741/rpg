@@ -16,11 +16,20 @@ export const createFormSchema = z.object({
     int: z.number().min(0).max(1000000),
   }),
 
-  abilities: z.object({
-    ability: z.string(),
-    wear: z.string(),
-    cost: z.string(),
-  }),
+  abilities: z.array(
+    z.object({
+      ability: z.string(),
+      wear: z.string(),
+      cost: z.string(),
+    }),
+  ),
+
+  inventory: z.array(
+    z.object({
+      itemName: z.string(),
+      quantity: z.number().min(0).max(1000000),
+    }),
+  ),
 })
 
 export type CreateFormSchema = z.infer<typeof createFormSchema>

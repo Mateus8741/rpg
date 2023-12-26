@@ -10,6 +10,7 @@
     "server": "json-server --watch src/server/db.json --port 3333"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.3.3",
     "axios": "^1.6.2",
     "next": "14.0.4",
     "react": "^18",

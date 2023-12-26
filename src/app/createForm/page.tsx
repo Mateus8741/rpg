@@ -2,32 +2,57 @@
 
 import { FormTextInput } from '@/components/Form/FormTextInput'
 import PrimeButton from '@/components/PrimeButton'
+import { CreateFormSchema, createFormSchema } from '@/schema/createFormSchema'
+import { zodResolver } from '@hookform/resolvers/zod'
 import { useFieldArray, useForm } from 'react-hook-form'
 
 import { FaCirclePlus, FaCircleXmark } from 'react-icons/fa6'
 
 export default function CreateForm() {
-  const { control, handleSubmit } = useForm({
+  const { control, handleSubmit } = useForm<CreateFormSchema>({
+    resolver: zodResolver(createFormSchema),
+
     defaultValues: {
-      username: '',
-      level: '',
-      exp: '',
-      gold: '',
-      hp: '',
-      mp: '',
-      str: '',
-      agl: '',
-      dex: '',
-      con: '',
-      int: '',
-      abilities: [{ ability: '', wear: '', cost: '' }],
-      itemName: '',
-      quantity: '',
+      userName: '',
+      level: 0,
+      exp: 0,
+      gold: 0,
+      attributes: {
+        hp: 0,
+        mp: 0,
+        str: 0,
+        agl: 0,
+        dex: 0,
+        con: 0,
+        int: 0,
+      },
+      abilities: [
+        {
+          ability: '',
+          wear: '',
+          cost: '',
+        },
+      ],
+      inventory: [
+        {
+          itemName: '',
+          quantity: 0,
+        },
+      ],
     },
   })
   const { fields, append, remove } = useFieldArray({
     control,
     name: 'abilities',
+  })
+
+  const {
+    fields: fields2,
+    append: append2,
+    remove: remove2,
+  } = useFieldArray({
+    control,
+    name: 'inventory',
   })
 
   function handleSubmitForm(data: any) {
@@ -38,7 +63,7 @@ export default function CreateForm() {
     <main className="min-h-screen p-8 text-black bg-white dark:bg-gray-900 dark:text-white">
       <form
         onSubmit={handleSubmit(handleSubmitForm)}
-        className="grid grid-cols-2 gap-4 mt-32 p-8 justify-center items-center"
+        className="grid grid-cols-2 gap-4 pt-32 justify-center items-center"
         style={{
           gridTemplateRows: 'repeat(4, 1fr)',
           gridTemplateColumns: 'repeat(2, 1fr)',
@@ -55,7 +80,7 @@ export default function CreateForm() {
 
           <FormTextInput
             control={control}
-            name="username"
+            name="userName"
             label="Nome do personagem"
             placeholder="Nome do personagem"
           />
@@ -81,19 +106,39 @@ export default function CreateForm() {
           <h1 className="text-3xl font-bold mb-5">Atributos</h1>
 
           <div className="grid grid-cols-2 gap-x-2">
-            <FormTextInput control={control} name="hp" label="HP" />
+            <FormTextInput control={control} name="attributes.hp" label="HP" />
 
-            <FormTextInput control={control} name="mp" label="MP" />
+            <FormTextInput control={control} name="attributes.mp" label="MP" />
 
-            <FormTextInput control={control} name="str" label="Força" />
+            <FormTextInput
+              control={control}
+              name="attributes.str"
+              label="Força"
+            />
 
-            <FormTextInput control={control} name="agl" label="Agilidade" />
+            <FormTextInput
+              control={control}
+              name="attributes.agl"
+              label="Agilidade"
+            />
 
-            <FormTextInput control={control} name="dex" label="Destreza" />
+            <FormTextInput
+              control={control}
+              name="attributes.dex"
+              label="Destreza"
+            />
 
-            <FormTextInput control={control} name="con" label="Constituição" />
+            <FormTextInput
+              control={control}
+              name="attributes.con"
+              label="Constituição"
+            />
 
-            <FormTextInput control={control} name="int" label="Inteligêcia" />
+            <FormTextInput
+              control={control}
+              name="attributes.int"
+              label="Inteligêcia"
+            />
           </div>
         </div>
 
@@ -138,19 +183,33 @@ export default function CreateForm() {
         <div className="flex flex-col items-center justify-center">
           <h1 className="text-3xl font-bold mb-5">Inventário/Quantidade</h1>
 
-          <div className="flex flex-row gap-2">
-            <FormTextInput
-              control={control}
-              name="itemName"
-              label="Nome do item"
-            />
+          {fields2.map((field, index) => (
+            <div key={field.id} className="flex flex-row gap-2 items-center">
+              <FormTextInput
+                control={control}
+                name={`inventory.${index}.itemName`}
+                label="Item"
+              />
 
-            <FormTextInput
-              control={control}
-              name="quantity"
-              label="Quantidade"
-            />
-          </div>
+              <FormTextInput
+                control={control}
+                name={`inventory.${index}.quantity`}
+                label="Quantidade"
+              />
+
+              {index === 0 ? (
+                <FaCirclePlus
+                  className="text-4xl cursor-pointer"
+                  onClick={() => append2({ itemName: '', quantity: 0 })}
+                />
+              ) : (
+                <FaCircleXmark
+                  className="text-4xl cursor-pointer"
+                  onClick={() => remove2(index)}
+                />
+              )}
+            </div>
+          ))}
         </div>
       </form>
     </main>
