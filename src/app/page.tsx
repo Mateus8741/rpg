@@ -38,7 +38,7 @@ export default function Home() {
               Nome do personagem
             </label>
             <input
-              className="w-full p-2 mb-6 text-lg bg-gray-100 border border-gray-400 rounded"
+              className="w-full p-2 mb-6 text-lg bg-gray-100 border border-gray-400 text-black rounded"
               id="username"
               type="text"
               placeholder="Username"
