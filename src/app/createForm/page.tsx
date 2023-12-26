@@ -2,10 +2,33 @@
 
 import { FormTextInput } from '@/components/Form/FormTextInput'
 import PrimeButton from '@/components/PrimeButton'
-import { useForm } from 'react-hook-form'
+import { useFieldArray, useForm } from 'react-hook-form'
+
+import { FaCirclePlus, FaCircleXmark } from 'react-icons/fa6'
 
 export default function CreateForm() {
-  const { control, handleSubmit } = useForm()
+  const { control, handleSubmit } = useForm({
+    defaultValues: {
+      username: '',
+      level: '',
+      exp: '',
+      gold: '',
+      hp: '',
+      mp: '',
+      str: '',
+      agl: '',
+      dex: '',
+      con: '',
+      int: '',
+      abilities: [{ ability: '', wear: '', cost: '' }],
+      itemName: '',
+      quantity: '',
+    },
+  })
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: 'abilities',
+  })
 
   function handleSubmitForm(data: any) {
     console.log(data)
@@ -66,7 +89,7 @@ export default function CreateForm() {
 
             <FormTextInput control={control} name="agl" label="Agilidade" />
 
-            <FormTextInput control={control} name="des" label="Destreza" />
+            <FormTextInput control={control} name="dex" label="Destreza" />
 
             <FormTextInput control={control} name="con" label="Constituição" />
 
@@ -77,13 +100,39 @@ export default function CreateForm() {
         <div className="flex flex-col items-center justify-center">
           <h1 className="text-3xl font-bold mb-5">Habilidades/Desgaste</h1>
 
-          <div className="flex flex-row gap-2">
-            <FormTextInput control={control} name="hab" label="Habilidade" />
+          {fields.map((field, index) => (
+            <div key={field.id} className="flex flex-row gap-2 items-center">
+              <FormTextInput
+                control={control}
+                name={`abilities.${index}.ability`}
+                label="Habilidade"
+              />
 
-            <FormTextInput control={control} name="wear" label="Desgaste" />
+              <FormTextInput
+                control={control}
+                name={`abilities.${index}.wear`}
+                label="Desgaste"
+              />
 
-            <FormTextInput control={control} name="cost" label="Custo" />
-          </div>
+              <FormTextInput
+                control={control}
+                name={`abilities.${index}.cost`}
+                label="Custo"
+              />
+
+              {index === 0 ? (
+                <FaCirclePlus
+                  className="text-4xl cursor-pointer"
+                  onClick={() => append({ ability: '', wear: '', cost: '' })}
+                />
+              ) : (
+                <FaCircleXmark
+                  className="text-4xl cursor-pointer"
+                  onClick={() => remove(index)}
+                />
+              )}
+            </div>
+          ))}
         </div>
 
         <div className="flex flex-col items-center justify-center">
