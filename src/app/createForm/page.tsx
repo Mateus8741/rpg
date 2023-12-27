@@ -9,7 +9,7 @@ import { useFieldArray, useForm } from 'react-hook-form'
 import { FaCirclePlus, FaCircleXmark } from 'react-icons/fa6'
 
 export default function CreateForm() {
-  const { control, handleSubmit, register } = useForm<CreateFormSchema>({
+  const { control, handleSubmit } = useForm<CreateFormSchema>({
     resolver: zodResolver(createFormSchema),
 
     defaultValues: {
