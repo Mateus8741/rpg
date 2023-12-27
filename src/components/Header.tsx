@@ -1,4 +1,6 @@
 import { Personagem } from '@/models/rpgDTO'
+import { useAppForm } from '@/services/useAppForm'
+import { useRouter } from 'next/navigation'
 import { FaPenToSquare } from 'react-icons/fa6'
 
 interface Persona {
@@ -6,8 +8,14 @@ interface Persona {
 }
 
 export function Header({ persona }: Persona) {
+  const router = useRouter()
+
+  const { setPersona } = useAppForm()
+
   function handleEdit() {
     console.log('edit')
+    setPersona(persona)
+    router.push('/editForm')
   }
 
   return (
