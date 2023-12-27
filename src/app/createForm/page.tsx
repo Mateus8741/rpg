@@ -55,7 +55,7 @@ export default function CreateForm() {
     name: 'inventory',
   })
 
-  function handleSubmitForm(data: any) {
+  function handleSubmitForm(data: CreateFormSchema) {
     console.log(data)
   }
 

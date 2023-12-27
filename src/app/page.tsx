@@ -51,7 +51,10 @@ export default function Home() {
         </form>
 
         <div className="w-1/3">
-          <PrimeButton text="Criar ficha" onClick={() => router.push('/')} />
+          <PrimeButton
+            text="Criar ficha"
+            onClick={() => router.push('/createForm')}
+          />
         </div>
 
         <div className="w-1/3">
