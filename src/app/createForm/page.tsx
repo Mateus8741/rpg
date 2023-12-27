@@ -9,22 +9,22 @@ import { useFieldArray, useForm } from 'react-hook-form'
 import { FaCirclePlus, FaCircleXmark } from 'react-icons/fa6'
 
 export default function CreateForm() {
-  const { control, handleSubmit } = useForm<CreateFormSchema>({
+  const { control, handleSubmit, register } = useForm<CreateFormSchema>({
     resolver: zodResolver(createFormSchema),
 
     defaultValues: {
       userName: '',
-      level: 0,
-      exp: 0,
-      gold: 0,
+      level: '',
+      exp: '',
+      gold: '',
       attributes: {
-        hp: 0,
-        mp: 0,
-        str: 0,
-        agl: 0,
-        dex: 0,
-        con: 0,
-        int: 0,
+        hp: '',
+        mp: '',
+        str: '',
+        agl: '',
+        dex: '',
+        con: '',
+        int: '',
       },
       abilities: [
         {
@@ -36,10 +36,14 @@ export default function CreateForm() {
       inventory: [
         {
           itemName: '',
-          quantity: 0,
+          quantity: '',
         },
       ],
     },
+
+    mode: 'onChange',
+    shouldFocusError: true,
+    shouldUnregister: true,
   })
   const { fields, append, remove } = useFieldArray({
     control,
@@ -56,7 +60,31 @@ export default function CreateForm() {
   })
 
   function handleSubmitForm(data: CreateFormSchema) {
-    console.log(data)
+    console.log({
+      userName: data.userName,
+      level: Number(data.level),
+      exp: Number(data.exp),
+      gold: Number(data.gold),
+      attributes: {
+        ...data.attributes,
+        hp: Number(data.attributes.hp),
+        mp: Number(data.attributes.mp),
+        str: Number(data.attributes.str),
+        agl: Number(data.attributes.agl),
+        dex: Number(data.attributes.dex),
+        con: Number(data.attributes.con),
+        int: Number(data.attributes.int),
+      },
+      abilities: data.abilities.map((ability) => ({
+        ...ability,
+        wear: Number(ability.wear),
+        cost: Number(ability.cost),
+      })),
+      inventory: data.inventory.map((item) => ({
+        ...item,
+        quantity: Number(item.quantity),
+      })),
+    })
   }
 
   return (
@@ -90,6 +118,7 @@ export default function CreateForm() {
             name="level"
             label="Level"
             placeholder="Seu level"
+            type="number"
           />
 
           <FormTextInput
@@ -97,47 +126,68 @@ export default function CreateForm() {
             name="exp"
             label="Experiência"
             placeholder="Suas experiências(em números)"
+            type="number"
           />
 
-          <FormTextInput control={control} name="gold" label="Gold" />
+          <FormTextInput
+            control={control}
+            name="gold"
+            label="Gold"
+            type="number"
+          />
         </div>
 
         <div className="flex flex-col items-center justify-center">
           <h1 className="text-3xl font-bold mb-5">Atributos</h1>
 
           <div className="grid grid-cols-2 gap-x-2">
-            <FormTextInput control={control} name="attributes.hp" label="HP" />
+            <FormTextInput
+              control={control}
+              name="attributes.hp"
+              label="HP"
+              type="number"
+            />
 
-            <FormTextInput control={control} name="attributes.mp" label="MP" />
+            <FormTextInput
+              control={control}
+              name="attributes.mp"
+              label="MP"
+              type="number"
+            />
 
             <FormTextInput
               control={control}
               name="attributes.str"
               label="Força"
+              type="number"
             />
 
             <FormTextInput
               control={control}
               name="attributes.agl"
               label="Agilidade"
+              type="number"
             />
 
             <FormTextInput
               control={control}
               name="attributes.dex"
               label="Destreza"
+              type="number"
             />
 
             <FormTextInput
               control={control}
               name="attributes.con"
               label="Constituição"
+              type="number"
             />
 
             <FormTextInput
               control={control}
               name="attributes.int"
               label="Inteligêcia"
+              type="number"
             />
           </div>
         </div>
@@ -157,12 +207,14 @@ export default function CreateForm() {
                 control={control}
                 name={`abilities.${index}.wear`}
                 label="Desgaste"
+                type="number"
               />
 
               <FormTextInput
                 control={control}
                 name={`abilities.${index}.cost`}
                 label="Custo"
+                type="number"
               />
 
               {index === 0 ? (
@@ -195,12 +247,13 @@ export default function CreateForm() {
                 control={control}
                 name={`inventory.${index}.quantity`}
                 label="Quantidade"
+                type="number"
               />
 
               {index === 0 ? (
                 <FaCirclePlus
                   className="text-4xl cursor-pointer"
-                  onClick={() => append2({ itemName: '', quantity: 0 })}
+                  onClick={() => append2({ itemName: '', quantity: '' })}
                 />
               ) : (
                 <FaCircleXmark
