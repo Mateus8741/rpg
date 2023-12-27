@@ -26,6 +26,8 @@ export default function CreateForm() {
         con: '',
         int: '',
       },
+      phobias: [{ phobia: '', amount: '' }],
+      maxAtkDef: { maxAtk: '', maxDef: '' },
       abilities: [
         {
           ability: '',
@@ -59,6 +61,15 @@ export default function CreateForm() {
     name: 'inventory',
   })
 
+  const {
+    fields: fields3,
+    append: append3,
+    remove: remove3,
+  } = useFieldArray({
+    control,
+    name: 'phobias',
+  })
+
   function handleSubmitForm(data: CreateFormSchema) {
     console.log({
       userName: data.userName,
@@ -74,6 +85,14 @@ export default function CreateForm() {
         dex: Number(data.attributes.dex),
         con: Number(data.attributes.con),
         int: Number(data.attributes.int),
+      },
+      phobias: data.phobias.map((phobia) => ({
+        ...phobia,
+        amount: Number(phobia.amount),
+      })),
+      maxAtkDef: {
+        maxAtk: Number(data.maxAtkDef.maxAtk),
+        maxDef: Number(data.maxAtkDef.maxDef),
       },
       abilities: data.abilities.map((ability) => ({
         ...ability,
@@ -187,6 +206,59 @@ export default function CreateForm() {
               control={control}
               name="attributes.int"
               label="Inteligêcia"
+              type="number"
+            />
+          </div>
+        </div>
+
+        <div className="flex flex-col items-center justify-center">
+          <h1 className="text-3xl font-bold mb-5">Fobias</h1>
+
+          {fields3.map((field, index) => (
+            <div key={field.id} className="flex flex-row gap-2 items-center">
+              <FormTextInput
+                control={control}
+                name={`phobias.${index}.phobia`}
+                label="Fobia"
+              />
+
+              <FormTextInput
+                control={control}
+                name={`phobias.${index}.amount`}
+                label="Quantidade"
+                type="number"
+              />
+
+              {index === 0 ? (
+                <FaCirclePlus
+                  className="text-4xl cursor-pointer"
+                  onClick={() => append3({ phobia: '', amount: '' })}
+                />
+              ) : (
+                <FaCircleXmark
+                  className="text-4xl cursor-pointer"
+                  onClick={() => remove3(index)}
+                />
+              )}
+            </div>
+          ))}
+        </div>
+
+        <div className="flex flex-col items-center justify-center">
+          <h1 className="text-3xl font-bold mb-5">MaxAtk/MaxDef</h1>
+
+          <div className="grid grid-cols-2 gap-x-2">
+            <FormTextInput
+              control={control}
+              name="maxAtkDef.maxAtk"
+              label="MaxAtk"
+              type="number"
+            />
+
+            <FormTextInput
+              control={control}
+              name="maxAtkDef.maxDef"
+              label="MaxDef"
               type="number"
             />
           </div>

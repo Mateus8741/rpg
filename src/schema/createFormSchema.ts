@@ -16,6 +16,18 @@ export const createFormSchema = z.object({
     int: z.string().min(0).max(1000000),
   }),
 
+  phobias: z.array(
+    z.object({
+      phobia: z.string(),
+      amount: z.string().min(0).max(1000000),
+    }),
+  ),
+
+  maxAtkDef: z.object({
+    maxAtk: z.string().min(0).max(1000000),
+    maxDef: z.string().min(0).max(1000000),
+  }),
+
   abilities: z.array(
     z.object({
       ability: z.string(),
