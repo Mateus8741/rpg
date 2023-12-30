@@ -1,5 +1,5 @@
+import { useAppForm } from '@/hooks/useAppForm'
 import { Personagem } from '@/models/rpgDTO'
-import { useAppForm } from '@/services/useAppForm'
 import { useRouter } from 'next/navigation'
 import { FaPenToSquare } from 'react-icons/fa6'
 
