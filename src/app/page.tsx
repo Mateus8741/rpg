@@ -2,8 +2,9 @@
 
 import PrimeButton from '@/components/PrimeButton'
 import { PersonaFixas } from '@/mock/personas'
+import axios from 'axios'
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function Home() {
   const router = useRouter()
@@ -23,14 +24,21 @@ export default function Home() {
     }
   }
 
-  // const { getUser } = userApi
+  const [result, setData] = useState()
 
-  // const { data } = useQuery({
-  //   queryKey: ['users'],
-  //   queryFn: () => getUser(),
-  // })
+  async function getUser() {
+    const { data } = await axios.get(
+      'https://rpg-api-production.up.railway.app/user',
+    )
 
-  // console.log(data)
+    setData(data)
+  }
+
+  console.log(result)
+
+  useEffect(() => {
+    getUser()
+  }, [])
 
   return (
     <main className="min-h-screen text-black bg-white dark:bg-gray-900 dark:text-white">
