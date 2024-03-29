@@ -1,5 +1,6 @@
 'use client'
 
+import { api } from '@/api/api'
 import { FormTextInput } from '@/components/Form/FormTextInput'
 import PrimeButton from '@/components/PrimeButton'
 import { useAppForm } from '@/hooks/useAppForm'
@@ -56,39 +57,6 @@ export default function EditForm() {
       ],
     },
 
-    // defaultValues: {
-    //   userName: persona?.nome,
-    //   level: persona?.level,
-    //   exp: persona?.experiencia,
-    //   gold: persona?.gold,
-    //   attributes: {
-    //     hp: persona?.atributos.hp,
-    //     mp: persona?.atributos.mp,
-    //     str: persona?.atributos.forca,
-    //     agl: persona?.atributos.agilidade,
-    //     dex: persona?.atributos.destreza,
-    //     con: persona?.atributos.constituicao,
-    //     int: persona?.atributos.inteligencia,
-    //   },
-    //   phobias: persona?.fobias.map((phobia) => ({
-    //     phobia: phobia.nome,
-    //     amount: phobia.quantidade,
-    //   })),
-    //   maxAtkDef: {
-    //     maxAtk: persona?.maxAtkDef.maxAtk,
-    //     maxDef: persona?.maxAtkDef.maxDef,
-    //   },
-    //   abilities: persona?.habilidades.map((ability) => ({
-    //     ability: ability.nome,
-    //     wear: ability.desgaste,
-    //     cost: ability.custo,
-    //   })),
-    //   inventory: persona?.inventario.map((item) => ({
-    //     itemName: item.nome,
-    //     quantity: item.quantidade,
-    //   })),
-    // },
-
     mode: 'onChange',
     shouldFocusError: true,
     shouldUnregister: true,
@@ -117,7 +85,7 @@ export default function EditForm() {
   })
 
   function handleSubmitForm(data: CreateFormSchema) {
-    console.log({
+    api.put(`/${persona?.id}`, {
       userName: data.userName,
       level: Number(data.level),
       exp: Number(data.exp),
@@ -165,7 +133,7 @@ export default function EditForm() {
         }}
       >
         <div className="w-1/5 absolute top-0 right-0 mt-4 mr-4 ">
-          <PrimeButton text="Editar ficha" submit />
+          <PrimeButton text="Salvar alteração" submit />
         </div>
 
         <div className="flex flex-col items-center justify-center">

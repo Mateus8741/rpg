@@ -123,65 +123,43 @@
       ]
     },
     {
-      "id": 3,
-      "name": "Gorim",
-      "race": "Anão",
+      "userName": "Gorim",
       "level": 12,
       "exp": 7200,
       "gold": 1500,
-      "status": {
-        "maxAtk": 28,
-        "maxDef": 35
-      },
       "attributes": {
-        "hp": 120,
+        "hp": 126,
         "mp": 60,
         "str": 16,
-        "agi": 12,
+        "agl": 12,
         "dex": 14,
         "con": 18,
         "int": 12
       },
-      "equip": {
-        "head": "Elmo de Ferro",
-        "body": "Cota de Malha Anã",
-        "hands": "Manoplas de Aço",
-        "feets": "Botas de Resistência",
-        "LWeapon": "Espada Longa",
-        "RWeapon": "Escudo de Ferro"
-      },
       "phobias": [
         {
-          "monster": "Ogro Gigante",
-          "quantity": 6
-        },
-        {
-          "monster": "Hidra da Montanha",
-          "quantity": 3
+          "phobia": "Ogro Gigante",
+          "amount": 6
         }
       ],
-      "skills": [
+      "maxAtkDef": {
+        "maxAtk": 28,
+        "maxDef": 35
+      },
+      "abilities": [
         {
-          "name": "Investida Furiosa",
+          "ability": "Investida Furiosa",
           "wear": 15,
-          "mpCost": 7
-        },
-        {
-          "name": "Ataque Destruidor",
-          "wear": 18,
-          "mpCost": 8
+          "cost": 7
         }
       ],
       "inventory": [
         {
-          "name": "Poção de Força",
+          "itemName": "Poção de Força",
           "quantity": 3
-        },
-        {
-          "name": "Elixir de Resistência",
-          "quantity": 1
         }
-      ]
+      ],
+      "id": 3
     },
     {
       "id": 4,
