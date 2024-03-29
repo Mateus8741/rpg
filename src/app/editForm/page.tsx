@@ -20,46 +20,7 @@ export default function EditForm() {
   const { control, handleSubmit } = useForm<CreateFormSchema>({
     resolver: zodResolver(createFormSchema),
 
-    // defaultValues: {
-    //   userName: persona?.nome,
-    //   level: persona?.level.toString(),
-    //   exp: persona?.experiencia.toString(),
-    //   gold: persona?.gold.toString(),
-    //   attributes: {
-    //     hp: persona?.atributos.hp.toString(),
-    //     mp: persona?.atributos.mp.toString(),
-    //     str: persona?.atributos.forca.toString(),
-    //     agl: persona?.atributos.agilidade.toString(),
-    //     dex: persona?.atributos.destreza.toString(),
-    //     con: persona?.atributos.constituicao.toString(),
-    //     int: persona?.atributos.inteligencia.toString(),
-    //   },
-    //   phobias: [
-    //     {
-    //       phobia: persona?.fobias[0].monstro,
-    //       amount: persona?.fobias[0].quantidadeParaSuperar.toString(),
-    //     },
-    //   ],
-    //   maxAtkDef: {
-    //     maxAtk: persona?.ataqueMaximo.toString(),
-    //     maxDef: persona?.defesaMaxima.toString(),
-    //   },
-    //   abilities: [
-    //     {
-    //       ability: persona?.habilidades[0].nome,
-    //       wear: persona?.habilidades[0].desgaste.toString(),
-    //       cost: persona?.habilidades[0].custoMP.toString(),
-    //     },
-    //   ],
-    //   inventory: [
-    //     {
-    //       itemName: '' || persona?.inventario[0].nomeItem,
-    //       quantity: '' || persona?.inventario[0].quantidade.toString(),
-    //     },
-    //   ],
-    // },
-
-    values: {
+    defaultValues: {
       userName: persona?.nome,
       level: persona?.level.toString(),
       exp: persona?.exp.toString(),
