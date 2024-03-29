@@ -62,7 +62,7 @@ export default function EditForm() {
     values: {
       userName: persona?.nome,
       level: persona?.level.toString(),
-      exp: persona?.experiencia.toString(),
+      exp: persona?.exp.toString(),
       gold: persona?.gold.toString(),
       attributes: {
         hp: persona?.atributos.hp.toString(),
@@ -76,12 +76,12 @@ export default function EditForm() {
       phobias: [
         {
           phobia: persona?.fobias[0].monstro,
-          amount: persona?.fobias[0].quantidadeParaSuperar.toString(),
+          amount: persona?.fobias[0].quantidade.toString(),
         },
       ],
       maxAtkDef: {
-        maxAtk: persona?.ataqueMaximo.toString(),
-        maxDef: persona?.defesaMaxima.toString(),
+        maxAtk: persona?.status.maxAtk.toString(),
+        maxDef: persona?.status.maxDef.toString(),
       },
       abilities: [
         {
@@ -92,7 +92,7 @@ export default function EditForm() {
       ],
       inventory: [
         {
-          itemName: '' || persona?.inventario[0].nomeItem,
+          itemName: '' || persona?.inventario[0].nome,
           quantity: '' || persona?.inventario[0].quantidade.toString(),
         },
       ],
