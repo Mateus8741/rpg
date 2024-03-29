@@ -1,3 +1,5 @@
+'use client'
+
 import { useAppForm } from '@/hooks/useAppForm'
 import { Personagem } from '@/models/rpgDTO'
 import { useRouter } from 'next/navigation'
@@ -44,7 +46,7 @@ export function Header({ persona }: Persona) {
             Experiência
           </p>
           <p className="text-xs sm:text-sm md:text-sm lg:text-md xl:text-xl font-normal border-2 border-white px-2">
-            {persona.experiencia}
+            {persona.exp}
           </p>
         </div>
 

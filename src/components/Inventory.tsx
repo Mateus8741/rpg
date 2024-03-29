@@ -16,10 +16,10 @@ export function Inventory({ persona }: InventoryProps) {
           </tr>
         </thead>
 
-        {persona.inventario.map((item, index) => (
+        {persona?.inventario?.map((item, index) => (
           <tbody key={index} className="bg-white divide-y divide-gray-200">
             <tr className="text-center text-sm font-medium text-gray-900">
-              <td className="py-2">{item.nomeItem}</td>
+              <td className="py-2">{item.nome}</td>
               <td className="py-2">{item.quantidade}</td>
             </tr>
           </tbody>

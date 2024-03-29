@@ -22,7 +22,7 @@ export interface Equipamentos {
 // Interface para as fobias do personagem
 export interface Fobias {
   monstro: string
-  quantidadeParaSuperar: number
+  quantidade: number
 }
 
 // Interface para as habilidades do personagem
@@ -34,8 +34,13 @@ export interface Habilidade {
 
 // Interface para o inventário do personagem
 export interface Inventario {
-  nomeItem: string
+  nome: string
   quantidade: number
+}
+
+export interface Status {
+  maxAtk: number
+  maxDef: number
 }
 
 // Interface para o personagem em geral
@@ -44,13 +49,12 @@ export interface Personagem {
   nome: string
   raca: string
   level: number
-  experiencia: number
+  exp: number
   gold: number
   atributos: Atributos
   equipamentos: Equipamentos
   fobias: Fobias[]
-  ataqueMaximo: number
-  defesaMaxima: number
+  status: Status
   habilidades: Habilidade[]
   inventario: Inventario[]
 }

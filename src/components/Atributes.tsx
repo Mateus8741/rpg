@@ -22,37 +22,37 @@ export function Atributes({ persona }: AtributesProps) {
           <tbody className="bg-white divide-y divide-gray-200">
             <tr className="text-left text-sm font-medium text-gray-900">
               <td className="">HP:</td>
-              <td className="">{persona.atributos.hp}</td>
+              <td className="">{persona?.atributos?.hp}</td>
             </tr>
 
             <tr className="text-left text-sm font-medium text-gray-900">
               <td className="">MP:</td>
-              <td className="">{persona.atributos.mp}</td>
+              <td className="">{persona?.atributos?.mp}</td>
             </tr>
 
             <tr className="text-left text-sm font-medium text-gray-900">
               <td className="">FOR:</td>
-              <td className="">{persona.atributos.forca}</td>
+              <td className="">{persona?.atributos?.forca}</td>
             </tr>
 
             <tr className="text-left text-sm font-medium text-gray-900">
               <td className="">AGL:</td>
-              <td className="">{persona.atributos.agilidade}</td>
+              <td className="">{persona?.atributos?.agilidade}</td>
             </tr>
 
             <tr className="text-left text-sm font-medium text-gray-900">
               <td className="">DES:</td>
-              <td className="">{persona.atributos.destreza}</td>
+              <td className="">{persona?.atributos?.destreza}</td>
             </tr>
 
             <tr className="text-left text-sm font-medium text-gray-900">
               <td className="">CON:</td>
-              <td className="">{persona.atributos.constituicao}</td>
+              <td className="">{persona?.atributos?.constituicao}</td>
             </tr>
 
             <tr className="text-left text-sm font-medium text-gray-900">
               <td className="">INT:</td>
-              <td className="">{persona.atributos.inteligencia}</td>
+              <td className="">{persona?.atributos?.inteligencia}</td>
             </tr>
           </tbody>
         </table>
@@ -69,32 +69,32 @@ export function Atributes({ persona }: AtributesProps) {
           <tbody className="bg-white divide-y divide-gray-200">
             <tr className="text-left text-sm font-medium text-gray-900">
               <td className="">1:</td>
-              <td className="">{persona.equipamentos.cabeca}</td>
+              <td className="">{persona?.equipamentos?.cabeca}</td>
             </tr>
 
             <tr className="text-left text-sm font-medium text-gray-900">
               <td className="">2:</td>
-              <td className="">{persona.equipamentos.peito}</td>
+              <td className="">{persona?.equipamentos?.peito}</td>
             </tr>
 
             <tr className="text-left text-sm font-medium text-gray-900">
               <td className="">3:</td>
-              <td className="">{persona.equipamentos.luvas}</td>
+              <td className="">{persona?.equipamentos?.luvas}</td>
             </tr>
 
             <tr className="text-left text-sm font-medium text-gray-900">
               <td className="">4:</td>
-              <td className="">{persona.equipamentos.botas}</td>
+              <td className="">{persona?.equipamentos?.botas}</td>
             </tr>
 
             <tr className="text-left text-sm font-medium text-gray-900">
               <td className="py-2">5:</td>
-              <td className="py-2">{persona.equipamentos.armaEsquerda}</td>
+              <td className="py-2">{persona?.equipamentos?.armaEsquerda}</td>
             </tr>
 
             <tr className="text-left text-sm font-medium text-gray-900">
               <td className="py-2">6:</td>
-              <td className="py-2">{persona.equipamentos.armaDireita}</td>
+              <td className="py-2">{persona?.equipamentos?.armaDireita}</td>
             </tr>
           </tbody>
         </table>
@@ -109,14 +109,14 @@ export function Atributes({ persona }: AtributesProps) {
           </thead>
 
           <tbody className="bg-white divide-y divide-gray-200">
-            {persona.fobias.length > 0 ? (
+            {persona?.fobias?.length > 0 ? (
               persona.fobias.map((fobia, index) => (
                 <tr
                   key={index}
                   className="text-left text-sm font-medium text-gray-900"
                 >
                   <td className="">{fobia.monstro}:</td>
-                  <td className="">{fobia.quantidadeParaSuperar}</td>
+                  <td className="">{fobia.quantidade}</td>
                 </tr>
               ))
             ) : (
@@ -147,12 +147,12 @@ export function Atributes({ persona }: AtributesProps) {
 
               <tr className="text-left text-sm font-medium text-gray-900">
                 <td className="">Ataque Máx:</td>
-                <td className="">{persona.ataqueMaximo}</td>
+                <td className="">{persona?.status?.maxAtk}</td>
               </tr>
 
               <tr className="text-left text-sm font-medium text-gray-900">
                 <td className="">Defesa Máx:</td>
-                <td className="">{persona.defesaMaxima}</td>
+                <td className="">{persona?.status?.maxDef}</td>
               </tr>
             </tbody>
           </table>

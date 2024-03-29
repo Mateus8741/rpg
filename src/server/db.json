@@ -2,8 +2,8 @@
   "heroes": [
     {
       "id": 1,
-      "name": "Aldar",
-      "race": "Elfo",
+      "nome": "Aldar",
+      "raca": "Elfo",
       "level": 10,
       "exp": 5000,
       "gold": 1000,
@@ -11,60 +11,60 @@
         "maxAtk": 25,
         "maxDef": 30
       },
-      "attributes": {
+      "atributos": {
         "hp": 100,
         "mp": 80,
-        "str": 12,
-        "agi": 18,
-        "dex": 15,
-        "con": 14,
-        "int": 16
+        "forca": 12,
+        "agilidade": 18,
+        "destreza": 15,
+        "constituicao": 14,
+        "inteligencia": 16
       },
-      "equip": {
-        "head": "Elmo do Poder",
-        "body": "Armadura de Aço",
-        "hands": "Luvas Ágeis",
-        "feets": "Botas do Viajante",
-        "LWeapon": "Espada Longa",
-        "RWeapon": "Escudo de Ferro"
+      "equipamentos": {
+        "cabeca": "Elmo do Poder",
+        "peito": "Armadura de Aço",
+        "luvas": "Luvas Ágeis",
+        "botas": "Botas do Viajante",
+        "armaEsquerda": "Espada Longa",
+        "armaDireita": "Escudo de Ferro"
       },
-      "phobias": [
+      "fobias": [
         {
-          "monster": "Espectro Sombrio",
-          "quantity": 5
+          "monstro": "Espectro Sombrio",
+          "quantidade": 5
         },
         {
-          "monster": "Aracnídeo Gigante",
-          "quantity": 3
+          "monstro": "Aracnídeo Gigante",
+          "quantidade": 3
         }
       ],
-      "skills": [
+      "habilidade": [
         {
-          "name": "Flecha Flamejante",
-          "wear": 10,
-          "mpCost": 5
+          "nome": "Flecha Flamejante",
+          "desgaste": 10,
+          "custoMP": 5
         },
         {
-          "name": "Golpe Preciso",
-          "wear": 8,
-          "mpCost": 4
+          "nome": "Golpe Preciso",
+          "desgaste": 8,
+          "custoMP": 4
         }
       ],
-      "inventory": [
+      "inventario": [
         {
-          "name": "Poção de Cura",
-          "quantity": 3
+          "nome": "Poção de Cura",
+          "quantidade": 3
         },
         {
-          "name": "Poção de Mana",
-          "quantity": 2
+          "nome": "Poção de Mana",
+          "quantidade": 2
         }
       ]
     },
     {
       "id": 2,
-      "name": "Elena",
-      "race": "Humano",
+      "nome": "Elena",
+      "raca": "Humano",
       "level": 8,
       "exp": 4200,
       "gold": 800,
@@ -72,99 +72,60 @@
         "maxAtk": 22,
         "maxDef": 28
       },
-      "attributes": {
+      "atributos": {
         "hp": 90,
         "mp": 70,
-        "str": 14,
-        "agi": 16,
-        "dex": 13,
-        "con": 16,
-        "int": 15
+        "forca": 14,
+        "agilidade": 16,
+        "destreza": 13,
+        "constituicao": 16,
+        "inteligencia": 15
       },
-      "equip": {
-        "head": "Elmo ",
-        "body": "Túnica de Tecido Mágico",
-        "hands": "Luvas Resistentes",
-        "feets": "Botas de rapidez",
-        "LWeapon": "Espada Longa",
-        "RWeapon": "Escudo de Ferro"
+      "equipamentos": {
+        "cabeca": "Elmo ",
+        "peito": "Túnica de Tecido Mágico",
+        "luvas": "Luvas Resistentes",
+        "botas": "Botas de rapidez",
+        "armaEsquerda": "Espada Longa",
+        "armaDireita": "Escudo de Ferro"
       },
-      "phobias": [
+      "fobias": [
         {
-          "monster": "Esqueleto Errante",
-          "quantity": 4
+          "monstro": "Esqueleto Errante",
+          "quantidade": 4
         },
         {
-          "monster": "Gárgula Sinistra",
-          "quantity": 2
+          "monstro": "Gárgula Siniforcaa",
+          "quantidade": 2
         }
       ],
-      "skills": [
+      "habilidade": [
         {
-          "name": "Curar Ferimentos",
-          "wear": 12,
-          "mpCost": 6
+          "nome": "Curar Ferimentos",
+          "desgaste": 12,
+          "custoMP": 6
         },
         {
-          "name": "Escudo Protetor",
-          "wear": 10,
-          "mpCost": 5
+          "nome": "Escudo Protetor",
+          "desgaste": 10,
+          "custoMP": 5
         }
       ],
-      "inventory": [
+      "inventario": [
         {
-          "name": "Poção de Cura",
-          "quantity": 4
+          "nome": "Poção de Cura",
+          "quantidade": 4
         },
         {
-          "name": "Antídoto",
-          "quantity": 2
+          "nome": "Antídoto",
+          "quantidade": 2
         }
       ]
     },
     {
-      "userName": "Gorim",
-      "level": 12,
-      "exp": 7200,
-      "gold": 1500,
-      "attributes": {
-        "hp": 125,
-        "mp": 60,
-        "str": 16,
-        "agl": 12,
-        "dex": 14,
-        "con": 18,
-        "int": 12
-      },
-      "phobias": [
-        {
-          "phobia": "Ogro Gigante",
-          "amount": 6
-        }
-      ],
-      "maxAtkDef": {
-        "maxAtk": 28,
-        "maxDef": 35
-      },
-      "abilities": [
-        {
-          "ability": "Investida Furiosa",
-          "wear": 15,
-          "cost": 7
-        }
-      ],
-      "inventory": [
-        {
-          "itemName": "Poção de Força",
-          "quantity": 3
-        }
-      ],
-      "id": 3
-    },
-    {
       "id": 4,
-      "name": "Kraven",
-      "race": "Mago",
+      "nome": "Kraven",
+      "raca": "Mago",
       "level": 10,
       "exp": 5000,
       "gold": 1000,
@@ -172,53 +133,53 @@
         "maxAtk": 25,
         "maxDef": 30
       },
-      "attributes": {
+      "atributos": {
         "hp": 100,
         "mp": 80,
-        "str": 12,
-        "agi": 18,
-        "dex": 15,
-        "con": 14,
-        "int": 16
+        "forca": 12,
+        "agilidade": 18,
+        "destreza": 15,
+        "constituicao": 14,
+        "inteligencia": 16
       },
-      "equip": {
-        "head": "Elmo do Poder",
-        "body": "Armadura de Aço",
-        "hands": "Luvas Ágeis",
-        "feets": "Botas do Viajante",
-        "LWeapon": "Espada Longa",
-        "RWeapon": "Escudo de Ferro"
+      "equipamentos": {
+        "cabeca": "Elmo do Poder",
+        "peito": "Armadura de Aço",
+        "luvas": "Luvas Ágeis",
+        "botas": "Botas do Viajante",
+        "armaEsquerda": "Espada Longa",
+        "armaDireita": "Escudo de Ferro"
       },
-      "phobias": [
+      "fobias": [
         {
-          "monster": "Espectro Sombrio",
-          "quantity": 5
+          "monstro": "Espectro Sombrio",
+          "quantidade": 5
         },
         {
-          "monster": "Aracnídeo Gigante",
-          "quantity": 3
+          "monstro": "Aracnídeo Gigante",
+          "quantidade": 3
         }
       ],
-      "skills": [
+      "habilidade": [
         {
-          "name": "Flecha Flamejante",
-          "wear": 10,
-          "mpCost": 5
+          "nome": "Flecha Flamejante",
+          "desgaste": 10,
+          "custoMP": 5
         },
         {
-          "name": "Golpe Preciso",
-          "wear": 8,
-          "mpCost": 4
+          "nome": "Golpe Preciso",
+          "desgaste": 8,
+          "custoMP": 4
         }
       ],
-      "inventory": [
+      "inventario": [
         {
-          "name": "Poção de Cura",
-          "quantity": 3
+          "nome": "Poção de Cura",
+          "quantidade": 3
         },
         {
-          "name": "Poção de Mana",
-          "quantity": 2
+          "nome": "Poção de Mana",
+          "quantidade": 2
         }
       ]
     }
