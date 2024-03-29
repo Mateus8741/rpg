@@ -1,16 +1,24 @@
 'use client'
 
+import { api } from '@/api/api'
 import PrimeButton from '@/components/PrimeButton'
-import { PersonaFixas } from '@/mock/personas'
+import { Personagem } from '@/models/rpgDTO'
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function Home() {
   const router = useRouter()
   const [username, setUsername] = useState('')
+  const [data, setData] = useState<Personagem[]>([])
 
-  const persona = PersonaFixas.find(
-    (persona) => persona.nome.toLowerCase() === username.toLocaleLowerCase(),
+  async function getPersona() {
+    const perso = await api.get('')
+    setData(perso.data)
+  }
+
+  const persona = data.find(
+    (persona) =>
+      persona.nome.toLocaleLowerCase() === username.toLocaleLowerCase(),
   )
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
@@ -22,6 +30,10 @@ export default function Home() {
       router.push(`/personagens/${persona.nome}`)
     }
   }
+
+  useEffect(() => {
+    getPersona()
+  }, [])
 
   return (
     <main className="min-h-screen text-black bg-white dark:bg-gray-900 dark:text-white">
