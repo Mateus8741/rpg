@@ -121,11 +121,7 @@ export default function EditForm() {
       })),
     })
 
-    if (persona?.nome === undefined) {
-      push('/not-found')
-    } else {
-      push(`/personagens/${persona?.nome}`)
-    }
+    push(`/personagens/${persona?.nome}`)
   }
 
   return (
