@@ -6,12 +6,14 @@ import PrimeButton from '@/components/PrimeButton'
 import { useAppForm } from '@/hooks/useAppForm'
 import { CreateFormSchema, createFormSchema } from '@/schema/createFormSchema'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useRouter } from 'next/navigation'
 import { useFieldArray, useForm } from 'react-hook-form'
 
 import { FaCirclePlus, FaCircleXmark } from 'react-icons/fa6'
 
 export default function EditForm() {
   const { persona } = useAppForm()
+  const { push } = useRouter()
 
   console.log(persona)
 
@@ -118,6 +120,12 @@ export default function EditForm() {
         quantity: Number(item.quantity),
       })),
     })
+
+    if (persona?.nome === undefined) {
+      push('/not-found')
+    } else {
+      push(`/personagens/${persona?.nome}`)
+    }
   }
 
   return (
