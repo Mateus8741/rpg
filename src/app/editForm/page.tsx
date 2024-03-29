@@ -1,5 +1,6 @@
 'use client'
 
+import { api } from '@/api/api'
 import { FormTextInput } from '@/components/Form/FormTextInput'
 import PrimeButton from '@/components/PrimeButton'
 import { useAppForm } from '@/hooks/useAppForm'
@@ -86,81 +87,45 @@ export default function EditForm() {
   })
 
   function handleSubmitForm(data: CreateFormSchema) {
-    // api.put(`/${persona?.nome}`, {
-    //   userName: data.userName,
-    //   level: Number(data.level),
-    //   exp: Number(data.exp),
-    //   gold: Number(data.gold),
-    //   attributes: {
-    //     ...data.attributes,
-    //     hp: Number(data.attributes.hp),
-    //     mp: Number(data.attributes.mp),
-    //     str: Number(data.attributes.str),
-    //     agl: Number(data.attributes.agl),
-    //     dex: Number(data.attributes.dex),
-    //     con: Number(data.attributes.con),
-    //     int: Number(data.attributes.int),
-    //   },
-    //   phobias: data.phobias.map((phobia) => ({
-    //     ...phobia,
-    //     amount: Number(phobia.amount),
-    //   })),
-    //   maxAtkDef: {
-    //     maxAtk: Number(data.maxAtkDef.maxAtk),
-    //     maxDef: Number(data.maxAtkDef.maxDef),
-    //   },
-    //   abilities: data.abilities.map((ability) => ({
-    //     ...ability,
-    //     wear: Number(ability.wear),
-    //     cost: Number(ability.cost),
-    //   })),
-    //   inventory: data.inventory.map((item) => ({
-    //     ...item,
-    //     quantity: Number(item.quantity),
-    //   })),
-    // })
-
-    fetch(`http://localhost:3333/heroes/${persona.id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
+    api.put(`/${persona?.id}`, {
+      userName: data.userName,
+      level: Number(data.level),
+      exp: Number(data.exp),
+      gold: Number(data.gold),
+      attributes: {
+        ...data.attributes,
+        hp: Number(data.attributes.hp),
+        mp: Number(data.attributes.mp),
+        str: Number(data.attributes.str),
+        agl: Number(data.attributes.agl),
+        dex: Number(data.attributes.dex),
+        con: Number(data.attributes.con),
+        int: Number(data.attributes.int),
       },
-      body: JSON.stringify({
-        userName: data.userName,
-        level: Number(data.level),
-        exp: Number(data.exp),
-        gold: Number(data.gold),
-        attributes: {
-          ...data.attributes,
-          hp: Number(data.attributes.hp),
-          mp: Number(data.attributes.mp),
-          str: Number(data.attributes.str),
-          agl: Number(data.attributes.agl),
-          dex: Number(data.attributes.dex),
-          con: Number(data.attributes.con),
-          int: Number(data.attributes.int),
-        },
-        phobias: data.phobias.map((phobia) => ({
-          ...phobia,
-          amount: Number(phobia.amount),
-        })),
-        maxAtkDef: {
-          maxAtk: Number(data.maxAtkDef.maxAtk),
-          maxDef: Number(data.maxAtkDef.maxDef),
-        },
-        abilities: data.abilities.map((ability) => ({
-          ...ability,
-          wear: Number(ability.wear),
-          cost: Number(ability.cost),
-        })),
-        inventory: data.inventory.map((item) => ({
-          ...item,
-          quantity: Number(item.quantity),
-        })),
-      }),
+      phobias: data.phobias.map((phobia) => ({
+        ...phobia,
+        amount: Number(phobia.amount),
+      })),
+      maxAtkDef: {
+        maxAtk: Number(data.maxAtkDef.maxAtk),
+        maxDef: Number(data.maxAtkDef.maxDef),
+      },
+      abilities: data.abilities.map((ability) => ({
+        ...ability,
+        wear: Number(ability.wear),
+        cost: Number(ability.cost),
+      })),
+      inventory: data.inventory.map((item) => ({
+        ...item,
+        quantity: Number(item.quantity),
+      })),
     })
 
-    push(`/personagens/${persona?.nome}`)
+    if (persona?.nome === undefined) {
+      push('/not-found')
+    } else {
+      push(`/personagens/${persona?.nome}`)
+    }
   }
 
   return (
