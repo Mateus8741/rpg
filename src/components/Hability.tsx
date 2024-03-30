@@ -16,7 +16,7 @@ export function Hability({ persona }: HabilityProps) {
           </tr>
         </thead>
         <tbody className="bg-white divide-y divide-gray-200">
-          {persona?.habilidades?.map((habilidade, index) => (
+          {persona?.habilidade?.map((habilidade, index) => (
             <tr
               key={index}
               className="text-center text-sm font-medium text-gray-900"
