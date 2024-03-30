@@ -1,32 +1,23 @@
 {
   "heroes": [
     {
-      "id": 1,
       "nome": "Aldar",
-      "raca": "Elfo",
       "level": 10,
       "exp": 5000,
       "gold": 1000,
-      "status": {
-        "maxAtk": 25,
-        "maxDef": 30
-      },
       "atributos": {
         "hp": 100,
         "mp": 80,
-        "forca": 12,
-        "agilidade": 18,
-        "destreza": 15,
-        "constituicao": 14,
-        "inteligencia": 16
-      },
-      "equipamentos": {
-        "cabeca": "Elmo do Poder",
-        "peito": "Armadura de Aço",
-        "luvas": "Luvas Ágeis",
-        "botas": "Botas do Viajante",
-        "armaEsquerda": "Espada Longa",
-        "armaDireita": "Escudo de Ferro"
+        "forca": "12",
+        "agilidade": "18",
+        "destreza": "15",
+        "constituicao": "14",
+        "inteligencia": "16",
+        "str": 12,
+        "agl": 18,
+        "dex": 15,
+        "con": 14,
+        "int": 16
       },
       "fobias": [
         {
@@ -38,6 +29,10 @@
           "quantidade": 3
         }
       ],
+      "status": {
+        "maxAtk": 25,
+        "maxDef": 30
+      },
       "habilidade": [
         {
           "nome": "Flecha Flamejante",
@@ -59,7 +54,8 @@
           "nome": "Poção de Mana",
           "quantidade": 2
         }
-      ]
+      ],
+      "id": 1
     },
     {
       "id": 2,

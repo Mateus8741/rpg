@@ -1,45 +1,45 @@
 import { z } from 'zod'
 
 export const createFormSchema = z.object({
-  userName: z.string().min(3).max(20),
+  nome: z.string().min(3).max(20),
   level: z.string().min(1).max(100),
   exp: z.string().min(0).max(1000000),
   gold: z.string().min(0).max(1000000),
 
-  attributes: z.object({
+  atributos: z.object({
     hp: z.string().min(0).max(1000000),
     mp: z.string().min(0).max(1000000),
-    str: z.string().min(0).max(1000000),
-    agl: z.string().min(0).max(1000000),
-    dex: z.string().min(0).max(1000000),
-    con: z.string().min(0).max(1000000),
-    int: z.string().min(0).max(1000000),
+    forca: z.string().min(0).max(1000000),
+    agilidade: z.string().min(0).max(1000000),
+    destreza: z.string().min(0).max(1000000),
+    constituicao: z.string().min(0).max(1000000),
+    inteligencia: z.string().min(0).max(1000000),
   }),
 
-  phobias: z.array(
+  fobias: z.array(
     z.object({
-      phobia: z.string(),
-      amount: z.string().min(0).max(1000000),
+      monstro: z.string(),
+      quantidade: z.string().min(0).max(1000000),
     }),
   ),
 
-  maxAtkDef: z.object({
+  status: z.object({
     maxAtk: z.string().min(0).max(1000000),
     maxDef: z.string().min(0).max(1000000),
   }),
 
-  abilities: z.array(
+  habilidade: z.array(
     z.object({
-      ability: z.string(),
-      wear: z.string(),
-      cost: z.string(),
+      nome: z.string(),
+      desgaste: z.string().min(0).max(1000000),
+      custoMP: z.string().min(0).max(1000000),
     }),
   ),
 
-  inventory: z.array(
+  inventario: z.array(
     z.object({
-      itemName: z.string(),
-      quantity: z.string().min(0).max(1000000),
+      nome: z.string(),
+      quantidade: z.string().min(0).max(1000000),
     }),
   ),
 })

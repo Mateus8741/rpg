@@ -12,7 +12,7 @@ export default function PrimeButton({
 }: PrimeButtonProps) {
   return (
     <button
-      className="flex items-center justify-center w-full p-4 mb-6 text-lg text-white bg-gray-900 rounded dark:border-2 dark:text-white"
+      className="flex items-center justify-center w-full p-4 text-lg text-white bg-gray-900 rounded dark:border-2 dark:text-white"
       type={submit ? 'submit' : 'button'}
       {...props}
     >

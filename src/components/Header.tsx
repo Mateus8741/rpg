@@ -17,7 +17,7 @@ export function Header({ persona }: Persona) {
   function handleEdit() {
     console.log('edit')
     setPersona(persona)
-    router.push('/editForm')
+    router.push(`/editForm/${persona.nome}`)
   }
 
   return (

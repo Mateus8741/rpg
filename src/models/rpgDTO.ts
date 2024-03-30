@@ -55,6 +55,6 @@ export interface Personagem {
   equipamentos: Equipamentos
   fobias: Fobias[]
   status: Status
-  habilidades: Habilidade[]
+  habilidade: Habilidade[]
   inventario: Inventario[]
 }
