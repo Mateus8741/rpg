@@ -1,55 +1,70 @@
 'use client'
 
+import { api } from '@/api/api'
 import { FormTextInput } from '@/components/Form/FormTextInput'
 import PrimeButton from '@/components/PrimeButton'
 import { CreateFormSchema, createFormSchema } from '@/schema/createFormSchema'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useRouter } from 'next/navigation'
 import { useFieldArray, useForm } from 'react-hook-form'
 
 import { FaCirclePlus, FaCircleXmark } from 'react-icons/fa6'
 
 export default function CreateForm() {
-  const { control, handleSubmit } = useForm<CreateFormSchema>({
+  const { push } = useRouter()
+
+  const { control, handleSubmit, watch } = useForm<CreateFormSchema>({
     resolver: zodResolver(createFormSchema),
 
     defaultValues: {
-      userName: '',
+      nome: '',
       level: '',
       exp: '',
       gold: '',
-      attributes: {
+      atributos: {
         hp: '',
         mp: '',
-        str: '',
-        agl: '',
-        dex: '',
-        con: '',
-        int: '',
+        forca: '',
+        agilidade: '',
+        destreza: '',
+        constituicao: '',
+        inteligencia: '',
       },
-      phobias: [{ phobia: '', amount: '' }],
-      maxAtkDef: { maxAtk: '', maxDef: '' },
-      abilities: [
+      fobias: [{ monstro: '', quantidade: '' }],
+      status: { maxAtk: '', maxDef: '' },
+      habilidade: [
         {
-          ability: '',
-          wear: '',
-          cost: '',
+          nome: '',
+          desgaste: '',
+          custoMP: '',
         },
       ],
-      inventory: [
+      inventario: [
         {
-          itemName: '',
-          quantity: '',
+          nome: '',
+          quantidade: '',
         },
       ],
+      equipamentos: {
+        cabeca: '',
+        peito: '',
+        luvas: '',
+        botas: '',
+        armaEsquerda: '',
+        armaDireita: '',
+      },
     },
 
     mode: 'onChange',
     shouldFocusError: true,
     shouldUnregister: true,
   })
+
+  const name = watch('nome')
+
   const { fields, append, remove } = useFieldArray({
     control,
-    name: 'abilities',
+    name: 'habilidade',
   })
 
   const {
@@ -58,7 +73,7 @@ export default function CreateForm() {
     remove: remove2,
   } = useFieldArray({
     control,
-    name: 'inventory',
+    name: 'inventario',
   })
 
   const {
@@ -67,276 +82,341 @@ export default function CreateForm() {
     remove: remove3,
   } = useFieldArray({
     control,
-    name: 'phobias',
+    name: 'fobias',
   })
 
   function handleSubmitForm(data: CreateFormSchema) {
-    console.log({
-      userName: data.userName,
+    api.post('', {
+      id: Math.random().toString(36).substring(7),
+      nome: data.nome,
       level: Number(data.level),
       exp: Number(data.exp),
       gold: Number(data.gold),
-      attributes: {
-        ...data.attributes,
-        hp: Number(data.attributes.hp),
-        mp: Number(data.attributes.mp),
-        str: Number(data.attributes.str),
-        agl: Number(data.attributes.agl),
-        dex: Number(data.attributes.dex),
-        con: Number(data.attributes.con),
-        int: Number(data.attributes.int),
+      atributos: {
+        ...data.atributos,
+        hp: Number(data.atributos.hp),
+        mp: Number(data.atributos.mp),
+        str: Number(data.atributos.forca),
+        agl: Number(data.atributos.agilidade),
+        dex: Number(data.atributos.destreza),
+        con: Number(data.atributos.constituicao),
+        int: Number(data.atributos.inteligencia),
       },
-      phobias: data.phobias.map((phobia) => ({
+      fobias: data.fobias.map((phobia) => ({
         ...phobia,
-        amount: Number(phobia.amount),
+        quantidade: Number(phobia.quantidade),
       })),
-      maxAtkDef: {
-        maxAtk: Number(data.maxAtkDef.maxAtk),
-        maxDef: Number(data.maxAtkDef.maxDef),
+      status: {
+        maxAtk: Number(data.status.maxAtk),
+        maxDef: Number(data.status.maxDef),
       },
-      abilities: data.abilities.map((ability) => ({
+      habilidade: data.habilidade.map((ability) => ({
         ...ability,
-        wear: Number(ability.wear),
-        cost: Number(ability.cost),
+        desgaste: Number(ability.desgaste),
+        custoMP: Number(ability.custoMP),
       })),
-      inventory: data.inventory.map((item) => ({
+      inventario: data.inventario.map((item) => ({
         ...item,
-        quantity: Number(item.quantity),
+        quantidade: Number(item.quantidade),
       })),
+      equipamentos: {
+        cabeca: data.equipamentos.cabeca,
+        peito: data.equipamentos.peito,
+        luvas: data.equipamentos.luvas,
+        botas: data.equipamentos.botas,
+        armaEsquerda: data.equipamentos.armaEsquerda,
+        armaDireita: data.equipamentos.armaDireita,
+      },
     })
+
+    push(`/personagens/${name}`)
+  }
+
+  function handleCancel() {
+    push('/')
   }
 
   return (
-    <main className="min-h-screen p-8 text-black bg-white dark:bg-gray-900 dark:text-white">
-      <form
-        onSubmit={handleSubmit(handleSubmitForm)}
-        className="grid grid-cols-2 gap-4 pt-32 justify-center items-center"
-        style={{
-          gridTemplateRows: 'repeat(4, 1fr)',
-          gridTemplateColumns: 'repeat(2, 1fr)',
-          justifyItems: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <div className="w-1/5 absolute top-0 right-0 mt-4 mr-4 ">
-          <PrimeButton text="Criar ficha" submit />
-        </div>
-
-        <div className="flex flex-col items-center justify-center">
-          <h1 className="text-3xl font-bold mb-5">Criar ficha</h1>
-
-          <FormTextInput
-            control={control}
-            name="userName"
-            label="Nome do personagem"
-            placeholder="Nome do personagem"
-          />
-
-          <FormTextInput
-            control={control}
-            name="level"
-            label="Level"
-            placeholder="Seu level"
-            type="number"
-          />
-
-          <FormTextInput
-            control={control}
-            name="exp"
-            label="Experiência"
-            placeholder="Suas experiências(em números)"
-            type="number"
-          />
-
-          <FormTextInput
-            control={control}
-            name="gold"
-            label="Gold"
-            type="number"
+    <>
+      <main className="min-h-screen text-black bg-white dark:bg-gray-900 dark:text-white">
+        <div className="flex flex-row p-5 gap-x-12 z-10 w-full fixed bg-gray-900 shadow-md">
+          <PrimeButton text="Cancelar" onClick={handleCancel} />
+          <PrimeButton
+            text="Criar ficha"
+            onClick={handleSubmit(handleSubmitForm)}
           />
         </div>
 
-        <div className="flex flex-col items-center justify-center">
-          <h1 className="text-3xl font-bold mb-5">Atributos</h1>
+        <form
+          onSubmit={handleSubmit(handleSubmitForm)}
+          className="grid grid-cols-2 gap-4 pt-32 justify-center items-center"
+          style={{
+            gridTemplateRows: 'repeat(4, 1fr)',
+            gridTemplateColumns: 'repeat(2, 1fr)',
+            justifyItems: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <div className="flex flex-col items-center justify-center">
+            <h1 className="text-3xl font-bold mb-5">Status</h1>
 
-          <div className="grid grid-cols-2 gap-x-2">
-            <FormTextInput
-              control={control}
-              name="attributes.hp"
-              label="HP"
-              type="number"
-            />
-
-            <FormTextInput
-              control={control}
-              name="attributes.mp"
-              label="MP"
-              type="number"
-            />
-
-            <FormTextInput
-              control={control}
-              name="attributes.str"
-              label="Força"
-              type="number"
-            />
-
-            <FormTextInput
-              control={control}
-              name="attributes.agl"
-              label="Agilidade"
-              type="number"
-            />
-
-            <FormTextInput
-              control={control}
-              name="attributes.dex"
-              label="Destreza"
-              type="number"
-            />
-
-            <FormTextInput
-              control={control}
-              name="attributes.con"
-              label="Constituição"
-              type="number"
-            />
-
-            <FormTextInput
-              control={control}
-              name="attributes.int"
-              label="Inteligêcia"
-              type="number"
-            />
-          </div>
-        </div>
-
-        <div className="flex flex-col items-center justify-center">
-          <h1 className="text-3xl font-bold mb-5">Fobias</h1>
-
-          {fields3.map((field, index) => (
-            <div key={field.id} className="flex flex-row gap-2 items-center">
+            <div className="grid grid-cols-2 gap-x-2">
               <FormTextInput
                 control={control}
-                name={`phobias.${index}.phobia`}
-                label="Fobia"
+                name="nome"
+                label="Nome do personagem"
+                placeholder="Nome do personagem"
               />
 
               <FormTextInput
                 control={control}
-                name={`phobias.${index}.amount`}
-                label="Quantidade"
+                name="level"
+                label="Level"
+                placeholder="Seu level"
                 type="number"
               />
 
-              {index === 0 ? (
-                <FaCirclePlus
-                  className="text-4xl cursor-pointer"
-                  onClick={() => append3({ phobia: '', amount: '' })}
+              <FormTextInput
+                control={control}
+                name="exp"
+                label="Experiência"
+                placeholder="Suas experiências(em números)"
+                type="number"
+              />
+
+              <FormTextInput
+                control={control}
+                name="gold"
+                label="Gold"
+                type="number"
+              />
+            </div>
+          </div>
+
+          <div className="flex flex-col items-center justify-center">
+            <h1 className="text-3xl font-bold mb-5">Equipamentos</h1>
+
+            <div className="grid grid-cols-2 gap-x-2">
+              <FormTextInput
+                control={control}
+                name="equipamentos.cabeca"
+                label="Capacete"
+              />
+
+              <FormTextInput
+                control={control}
+                name="equipamentos.peito"
+                label="Peito"
+              />
+
+              <FormTextInput
+                control={control}
+                name="equipamentos.luvas"
+                label="Luvas"
+              />
+
+              <FormTextInput
+                control={control}
+                name="equipamentos.botas"
+                label="Botas"
+              />
+
+              <FormTextInput
+                control={control}
+                name="equipamentos.armaEsquerda"
+                label="Arma Esquerda"
+              />
+
+              <FormTextInput
+                control={control}
+                name="equipamentos.armaDireita"
+                label="Arma Direita"
+              />
+            </div>
+          </div>
+
+          <div className="flex flex-col items-center justify-center">
+            <h1 className="text-3xl font-bold mb-5">Atributos</h1>
+
+            <div className="grid grid-cols-2 gap-x-2">
+              <FormTextInput
+                control={control}
+                name="atributos.hp"
+                label="HP"
+                type="number"
+              />
+
+              <FormTextInput
+                control={control}
+                name="atributos.mp"
+                label="MP"
+                type="number"
+              />
+
+              <FormTextInput
+                control={control}
+                name="atributos.forca"
+                label="Força"
+                type="number"
+              />
+
+              <FormTextInput
+                control={control}
+                name="atributos.agilidade"
+                label="Agilidade"
+                type="number"
+              />
+
+              <FormTextInput
+                control={control}
+                name="atributos.destreza"
+                label="Destreza"
+                type="number"
+              />
+
+              <FormTextInput
+                control={control}
+                name="atributos.constituicao"
+                label="Constituição"
+                type="number"
+              />
+
+              <FormTextInput
+                control={control}
+                name="atributos.inteligencia"
+                label="Inteligêcia"
+                type="number"
+              />
+            </div>
+          </div>
+
+          <div className="flex flex-col items-center justify-center">
+            <div className="flex flex-row gap-3">
+              <h1 className="text-3xl font-bold mb-5">Fobias</h1>
+
+              <FaCirclePlus
+                className="text-4xl cursor-pointer"
+                onClick={() => append3({ monstro: '', quantidade: '' })}
+              />
+            </div>
+
+            {fields3.map((field, index) => (
+              <div key={field.id} className="flex flex-row gap-2 items-center">
+                <FormTextInput
+                  control={control}
+                  name={`fobias.${index}.monstro`}
+                  label="Fobia"
                 />
-              ) : (
+
+                <FormTextInput
+                  control={control}
+                  name={`fobias.${index}.quantidade`}
+                  label="Quantidade"
+                  type="number"
+                />
+
                 <FaCircleXmark
                   className="text-4xl cursor-pointer"
                   onClick={() => remove3(index)}
                 />
-              )}
-            </div>
-          ))}
-        </div>
-
-        <div className="flex flex-col items-center justify-center">
-          <h1 className="text-3xl font-bold mb-5">MaxAtk/MaxDef</h1>
-
-          <div className="grid grid-cols-2 gap-x-2">
-            <FormTextInput
-              control={control}
-              name="maxAtkDef.maxAtk"
-              label="MaxAtk"
-              type="number"
-            />
-
-            <FormTextInput
-              control={control}
-              name="maxAtkDef.maxDef"
-              label="MaxDef"
-              type="number"
-            />
+              </div>
+            ))}
           </div>
-        </div>
 
-        <div className="flex flex-col items-center justify-center">
-          <h1 className="text-3xl font-bold mb-5">Habilidades/Desgaste</h1>
+          <div className="flex flex-col items-center justify-center">
+            <h1 className="text-3xl font-bold mb-5">MaxAtk/MaxDef</h1>
 
-          {fields.map((field, index) => (
-            <div key={field.id} className="flex flex-row gap-2 items-center">
+            <div className="grid grid-cols-2 gap-x-2">
               <FormTextInput
                 control={control}
-                name={`abilities.${index}.ability`}
-                label="Habilidade"
-              />
-
-              <FormTextInput
-                control={control}
-                name={`abilities.${index}.wear`}
-                label="Desgaste"
+                name="status.maxAtk"
+                label="MaxAtk"
                 type="number"
               />
 
               <FormTextInput
                 control={control}
-                name={`abilities.${index}.cost`}
-                label="Custo"
+                name="status.maxDef"
+                label="MaxDef"
                 type="number"
               />
+            </div>
+          </div>
 
-              {index === 0 ? (
-                <FaCirclePlus
-                  className="text-4xl cursor-pointer"
-                  onClick={() => append({ ability: '', wear: '', cost: '' })}
+          <div className="flex flex-col px-8 items-center justify-center">
+            <div className="flex flex-row gap-3">
+              <h1 className="text-3xl font-bold mb-5">Habilidades/Desgaste</h1>
+
+              <FaCirclePlus
+                className="text-4xl cursor-pointer"
+                onClick={() => append({ nome: '', desgaste: '', custoMP: '' })}
+              />
+            </div>
+
+            {fields.map((field, index) => (
+              <div key={field.id} className="flex flex-row gap-2 items-center">
+                <FormTextInput
+                  control={control}
+                  name={`habilidade.${index}.nome`}
+                  label="Habilidade"
                 />
-              ) : (
+
+                <FormTextInput
+                  control={control}
+                  name={`habilidade.${index}.desgaste`}
+                  label="Desgaste"
+                  type="number"
+                />
+
+                <FormTextInput
+                  control={control}
+                  name={`habilidade.${index}.custoMP`}
+                  label="Custo"
+                  type="number"
+                />
+
                 <FaCircleXmark
                   className="text-4xl cursor-pointer"
                   onClick={() => remove(index)}
                 />
-              )}
+              </div>
+            ))}
+          </div>
+
+          <div className="flex flex-col px-8 items-center justify-center">
+            <div className="flex flex-row gap-3">
+              <h1 className="text-3xl font-bold mb-5">Inventário/Quantidade</h1>
+
+              <FaCirclePlus
+                className="text-4xl cursor-pointer"
+                onClick={() => append2({ nome: '', quantidade: '' })}
+              />
             </div>
-          ))}
-        </div>
 
-        <div className="flex flex-col items-center justify-center">
-          <h1 className="text-3xl font-bold mb-5">Inventário/Quantidade</h1>
-
-          {fields2.map((field, index) => (
-            <div key={field.id} className="flex flex-row gap-2 items-center">
-              <FormTextInput
-                control={control}
-                name={`inventory.${index}.itemName`}
-                label="Item"
-              />
-
-              <FormTextInput
-                control={control}
-                name={`inventory.${index}.quantity`}
-                label="Quantidade"
-                type="number"
-              />
-
-              {index === 0 ? (
-                <FaCirclePlus
-                  className="text-4xl cursor-pointer"
-                  onClick={() => append2({ itemName: '', quantity: '' })}
+            {fields2.map((field, index) => (
+              <div key={field.id} className="flex flex-row gap-2 items-center">
+                <FormTextInput
+                  control={control}
+                  name={`inventario.${index}.nome`}
+                  label="Item"
                 />
-              ) : (
+
+                <FormTextInput
+                  control={control}
+                  name={`inventario.${index}.quantidade`}
+                  label="Quantidade"
+                  type="number"
+                />
+
                 <FaCircleXmark
                   className="text-4xl cursor-pointer"
                   onClick={() => remove2(index)}
                 />
-              )}
-            </div>
-          ))}
-        </div>
-      </form>
-    </main>
+              </div>
+            ))}
+          </div>
+        </form>
+      </main>
+    </>
   )
 }

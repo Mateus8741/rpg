@@ -42,7 +42,7 @@ export default function EditForm({ params: { name } }: EditFormProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const { control, handleSubmit } = useForm<CreateFormSchema>({
+  const { control, handleSubmit, watch } = useForm<CreateFormSchema>({
     resolver: zodResolver(createFormSchema),
 
     values: {
@@ -92,12 +92,22 @@ export default function EditForm({ params: { name } }: EditFormProps) {
           quantidade: '',
         },
       ],
+      equipamentos: {
+        cabeca: persona?.equipamentos?.cabeca || '',
+        peito: persona?.equipamentos?.peito || '',
+        luvas: persona?.equipamentos?.luvas || '',
+        botas: persona?.equipamentos?.botas || '',
+        armaEsquerda: persona?.equipamentos?.armaEsquerda || '',
+        armaDireita: persona?.equipamentos?.armaDireita || '',
+      },
     },
 
     mode: 'onChange',
     shouldFocusError: true,
     shouldUnregister: true,
   })
+
+  const nameWatch = watch('nome')
 
   const { fields, append, remove } = useFieldArray({
     control,
@@ -155,17 +165,20 @@ export default function EditForm({ params: { name } }: EditFormProps) {
         ...item,
         quantidade: Number(item.quantidade),
       })),
+      equipamentos: {
+        ...data.equipamentos,
+      },
     })
 
     if (persona?.nome === undefined) {
       push('/not-found')
     } else {
-      push(`/personagens/${persona?.nome}`)
+      push(`/personagens/${nameWatch}`)
     }
   }
 
   function handleCancel() {
-    push(`/personagens/${persona?.nome}`)
+    push(`/personagens/${nameWatch}`)
   }
 
   return (
@@ -173,7 +186,10 @@ export default function EditForm({ params: { name } }: EditFormProps) {
       <main className="min-h-screen text-black bg-white dark:bg-gray-900 dark:text-white">
         <div className="flex flex-row p-5 gap-x-12 z-10 w-full fixed bg-gray-900 shadow-md">
           <PrimeButton text="Cancelar" onClick={handleCancel} />
-          <PrimeButton text="Salvar alteração" submit />
+          <PrimeButton
+            text="Salvar alteração"
+            onClick={handleSubmit(handleSubmitForm)}
+          />
         </div>
 
         <form
@@ -189,35 +205,79 @@ export default function EditForm({ params: { name } }: EditFormProps) {
           <div className="flex flex-col items-center justify-center">
             <h1 className="text-3xl font-bold mb-5">Status</h1>
 
-            <FormTextInput
-              control={control}
-              name="nome"
-              label="Nome do personagem"
-              placeholder="Nome do personagem"
-            />
+            <div className="grid grid-cols-2 gap-x-2">
+              <FormTextInput
+                control={control}
+                name="nome"
+                label="Nome do personagem"
+                placeholder="Nome do personagem"
+              />
 
-            <FormTextInput
-              control={control}
-              name="level"
-              label="Level"
-              placeholder="Seu level"
-              type="number"
-            />
+              <FormTextInput
+                control={control}
+                name="level"
+                label="Level"
+                placeholder="Seu level"
+                type="number"
+              />
 
-            <FormTextInput
-              control={control}
-              name="exp"
-              label="Experiência"
-              placeholder="Suas experiências(em números)"
-              type="number"
-            />
+              <FormTextInput
+                control={control}
+                name="exp"
+                label="Experiência"
+                placeholder="Suas experiências(em números)"
+                type="number"
+              />
 
-            <FormTextInput
-              control={control}
-              name="gold"
-              label="Gold"
-              type="number"
-            />
+              <FormTextInput
+                control={control}
+                name="gold"
+                label="Gold"
+                type="number"
+              />
+            </div>
+          </div>
+
+          <div className="flex flex-col items-center justify-center">
+            <h1 className="text-3xl font-bold mb-5">Equipamentos</h1>
+
+            <div className="grid grid-cols-2 gap-x-2">
+              <FormTextInput
+                control={control}
+                name="equipamentos.cabeca"
+                label="Capacete"
+              />
+
+              <FormTextInput
+                control={control}
+                name="equipamentos.peito"
+                label="Peito"
+              />
+
+              <FormTextInput
+                control={control}
+                name="equipamentos.luvas"
+                label="Luvas"
+              />
+
+              <FormTextInput
+                control={control}
+                name="equipamentos.botas"
+                label="Botas"
+              />
+
+              <FormTextInput
+                control={control}
+                name="equipamentos.armaEsquerda"
+                label="Arma Esquerda"
+              />
+
+              <FormTextInput
+                control={control}
+                name="equipamentos.armaDireita"
+                label="Arma Direita"
+              />
+            </div>
           </div>
 
           <div className="flex flex-col items-center justify-center">

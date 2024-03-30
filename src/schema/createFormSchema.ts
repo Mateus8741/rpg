@@ -1,6 +1,7 @@
 import { z } from 'zod'
 
 export const createFormSchema = z.object({
+  id: z.string().optional(),
   nome: z.string().min(3).max(20),
   level: z.string().min(1).max(100),
   exp: z.string().min(0).max(1000000),
@@ -42,6 +43,15 @@ export const createFormSchema = z.object({
       quantidade: z.string().min(0).max(1000000),
     }),
   ),
+
+  equipamentos: z.object({
+    cabeca: z.string(),
+    peito: z.string(),
+    luvas: z.string(),
+    botas: z.string(),
+    armaEsquerda: z.string(),
+    armaDireita: z.string(),
+  }),
 })
 
 export type CreateFormSchema = z.infer<typeof createFormSchema>

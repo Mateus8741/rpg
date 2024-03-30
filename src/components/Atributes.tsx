@@ -9,8 +9,35 @@ interface AtributesProps {
 export function Atributes({ persona }: AtributesProps) {
   return (
     <div className="flex flex-col mb-4">
-      <div className="grid grid-cols-4 gap-4 mb-4">
-        <table className="min-w-full">
+      <div className="grid grid-cols-1 mb-4">
+        <table className="w-1/2">
+          <thead>
+            <tr>
+              <th colSpan={2} className="text-lg font-semibold text-center">
+                Ataque e Defesa
+              </th>
+            </tr>
+          </thead>
+          <tbody className="bg-white divide-y divide-gray-200">
+            <tr className="text-center">
+              <td colSpan={2} className="py-4" align="center">
+                <Image src={armor} width={120} height={120} alt="Armor" />
+              </td>
+            </tr>
+
+            <tr className="text-left text-sm font-medium text-gray-900">
+              <td className="">Ataque Máx:</td>
+              <td className="">{persona?.status?.maxAtk}</td>
+            </tr>
+
+            <tr className="text-left text-sm font-medium text-gray-900">
+              <td className="">Defesa Máx:</td>
+              <td className="">{persona?.status?.maxDef}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table className="w-full">
           <thead>
             <tr>
               <th colSpan={2} className="text-lg font-semibold text-center">
@@ -57,7 +84,7 @@ export function Atributes({ persona }: AtributesProps) {
           </tbody>
         </table>
 
-        <table className="min-w-full">
+        <table className="w-full">
           <thead>
             <tr>
               <th colSpan={2} className="text-lg font-semibold text-center">
@@ -99,38 +126,8 @@ export function Atributes({ persona }: AtributesProps) {
           </tbody>
         </table>
 
-        <table className="min-w-full">
-          <thead>
-            <tr>
-              <th colSpan={2} className="text-lg font-semibold text-center">
-                Fobias
-              </th>
-            </tr>
-          </thead>
-
-          <tbody className="bg-white divide-y divide-gray-200">
-            {persona?.fobias?.length > 0 ? (
-              persona.fobias.map((fobia, index) => (
-                <tr
-                  key={index}
-                  className="text-left text-sm font-medium text-gray-900"
-                >
-                  <td className="">{fobia.monstro}:</td>
-                  <td className="">{fobia.quantidade}</td>
-                </tr>
-              ))
-            ) : (
-              <tr className="text-left text-sm font-medium text-gray-900">
-                <td className="" align="center">
-                  Nenhuma
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-
-        <div className="col-span-4 sm:col-span-2 lg:col-span-1">
-          <table className="min-w-full">
+        {/* <div className="col-span-4 sm:col-span-2 lg:col-span-1">
+          <table className="w-1/2">
             <thead>
               <tr>
                 <th colSpan={2} className="text-lg font-semibold text-center">
@@ -156,8 +153,38 @@ export function Atributes({ persona }: AtributesProps) {
               </tr>
             </tbody>
           </table>
-        </div>
+        </div> */}
       </div>
+
+      <table className="min-w-full">
+        <thead>
+          <tr>
+            <th colSpan={2} className="text-lg font-semibold text-center">
+              Fobias
+            </th>
+          </tr>
+        </thead>
+
+        <tbody className="bg-white divide-y divide-gray-200">
+          {persona?.fobias?.length > 0 ? (
+            persona.fobias.map((fobia, index) => (
+              <tr
+                key={index}
+                className="text-left text-sm font-medium w-full text-gray-900"
+              >
+                <td className="">{fobia.monstro}:</td>
+                <td className="">{fobia.quantidade}</td>
+              </tr>
+            ))
+          ) : (
+            <tr className="text-left text-sm font-medium text-gray-900">
+              <td className="" align="center">
+                Nenhuma
+              </td>
+            </tr>
+          )}
+        </tbody>
+      </table>
     </div>
   )
 }

@@ -1,183 +1,95 @@
 {
   "heroes": [
     {
-      "nome": "Aldar",
-      "level": 10,
-      "exp": 5000,
-      "gold": 1000,
+      "nome": "gordo",
+      "level": 9870987098787,
+      "exp": 987098098,
+      "gold": 9870987098,
       "atributos": {
-        "hp": 100,
-        "mp": 80,
-        "forca": "12",
-        "agilidade": "18",
-        "destreza": "15",
-        "constituicao": "14",
-        "inteligencia": "16",
-        "str": 12,
-        "agl": 18,
-        "dex": 15,
-        "con": 14,
-        "int": 16
+        "hp": 8768798798,
+        "mp": 7698760876078,
+        "forca": "08760870676",
+        "agilidade": "0870860875087",
+        "destreza": "60708760760",
+        "constituicao": "78076087607",
+        "inteligencia": "6087607076",
+        "str": 8760870676,
+        "agl": 870860875087,
+        "dex": 60708760760,
+        "con": 78076087607,
+        "int": 6087607076
       },
       "fobias": [
         {
-          "monstro": "Espectro Sombrio",
-          "quantidade": 5
+          "monstro": "hbohvuhvoluyv",
+          "quantidade": 8709870
         },
         {
-          "monstro": "Aracnídeo Gigante",
-          "quantidade": 3
+          "monstro": "ijnijbp;iubvpiujhvljhvlhgvluyvluyv;luiyv;uyvluyvluyvl;uyvlu",
+          "quantidade": 8967098608760
+        },
+        {
+          "monstro": "hub;kjb;kjbj",
+          "quantidade": 876087608
+        },
+        {
+          "monstro": "add outra",
+          "quantidade": 2
         }
       ],
       "status": {
-        "maxAtk": 25,
-        "maxDef": 30
+        "maxAtk": 8769876,
+        "maxDef": 786087607
       },
       "habilidade": [
         {
-          "nome": "Flecha Flamejante",
-          "desgaste": 10,
-          "custoMP": 5
+          "nome": "ljhblhvlhgvlugh",
+          "desgaste": 87698760876,
+          "custoMP": 9765976
         },
         {
-          "nome": "Golpe Preciso",
-          "desgaste": 8,
-          "custoMP": 4
+          "nome": "kjbljgckhgvljh",
+          "desgaste": 876976,
+          "custoMP": 659765976
+        },
+        {
+          "nome": "ljhvogcouvuy",
+          "desgaste": 87597865765,
+          "custoMP": 65976976
+        },
+        {
+          "nome": "addoutra",
+          "desgaste": 3,
+          "custoMP": 3
         }
       ],
       "inventario": [
         {
-          "nome": "Poção de Cura",
-          "quantidade": 3
+          "nome": "hjbouyhvluyhvpuyh",
+          "quantidade": 8760876087
         },
         {
-          "nome": "Poção de Mana",
+          "nome": "jhbljhbljhvblhj",
+          "quantidade": 807608760
+        },
+        {
+          "nome": "jhbljhbljhb;iuv",
+          "quantidade": 876087608760
+        },
+        {
+          "nome": "addoutra",
           "quantidade": 2
         }
       ],
-      "id": 1
-    },
-    {
-      "id": 2,
-      "nome": "Elena",
-      "raca": "Humano",
-      "level": 8,
-      "exp": 4200,
-      "gold": 800,
-      "status": {
-        "maxAtk": 22,
-        "maxDef": 28
-      },
-      "atributos": {
-        "hp": 90,
-        "mp": 70,
-        "forca": 14,
-        "agilidade": 16,
-        "destreza": 13,
-        "constituicao": 16,
-        "inteligencia": 15
-      },
       "equipamentos": {
-        "cabeca": "Elmo ",
-        "peito": "Túnica de Tecido Mágico",
-        "luvas": "Luvas Resistentes",
-        "botas": "Botas de rapidez",
-        "armaEsquerda": "Espada Longa",
-        "armaDireita": "Escudo de Ferro"
+        "cabeca": "ihoihjiu",
+        "peito": "npiubipubpiu",
+        "luvas": "bpiubiubiuyg",
+        "botas": ";iupiugpiupiuyvouyvljhgjlhgjhgkhjgkjhgljhgljhgljhgljhglj",
+        "armaEsquerda": "uyvouyvouyv",
+        "armaDireita": "ouyvuyvoy"
       },
-      "fobias": [
-        {
-          "monstro": "Esqueleto Errante",
-          "quantidade": 4
-        },
-        {
-          "monstro": "Gárgula Siniforcaa",
-          "quantidade": 2
-        }
-      ],
-      "habilidade": [
-        {
-          "nome": "Curar Ferimentos",
-          "desgaste": 12,
-          "custoMP": 6
-        },
-        {
-          "nome": "Escudo Protetor",
-          "desgaste": 10,
-          "custoMP": 5
-        }
-      ],
-      "inventario": [
-        {
-          "nome": "Poção de Cura",
-          "quantidade": 4
-        },
-        {
-          "nome": "Antídoto",
-          "quantidade": 2
-        }
-      ]
-    },
-    {
-      "id": 4,
-      "nome": "Kraven",
-      "raca": "Mago",
-      "level": 11,
-      "exp": 5000,
-      "gold": 1000,
-      "status": {
-        "maxAtk": 25,
-        "maxDef": 30
-      },
-      "atributos": {
-        "hp": 100,
-        "mp": 80,
-        "forca": 12,
-        "agilidade": 18,
-        "destreza": 15,
-        "constituicao": 14,
-        "inteligencia": 16
-      },
-      "equipamentos": {
-        "cabeca": "Elmo do Poder",
-        "peito": "Armadura de Aço",
-        "luvas": "Luvas Ágeis",
-        "botas": "Botas do Viajante",
-        "armaEsquerda": "Espada Longa",
-        "armaDireita": "Escudo de Ferro"
-      },
-      "fobias": [
-        {
-          "monstro": "Espectro Sombrio",
-          "quantidade": 5
-        },
-        {
-          "monstro": "Aracnídeo Gigante",
-          "quantidade": 3
-        }
-      ],
-      "habilidade": [
-        {
-          "nome": "Flecha Flamejante",
-          "desgaste": 10,
-          "custoMP": 5
-        },
-        {
-          "nome": "Golpe Preciso",
-          "desgaste": 8,
-          "custoMP": 4
-        }
-      ],
-      "inventario": [
-        {
-          "nome": "Poção de Cura",
-          "quantidade": 3
-        },
-        {
-          "nome": "Poção de Mana",
-          "quantidade": 2
-        }
-      ]
+      "id": "9z9ig"
     }
   ]
 }
