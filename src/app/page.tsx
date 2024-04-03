@@ -16,6 +16,18 @@ export default function Home() {
     setData(perso.data)
   }
 
+  function Test() {
+    fetch('http://localhost:3000/api/heroes')
+      .then((response) => {
+        response.json().then((data) => {
+          console.log(data)
+        })
+      })
+      .catch((error) => {
+        console.log('Erro ao buscar dados', error)
+      })
+  }
+
   const persona = data.find(
     (persona) =>
       persona.nome.toLocaleLowerCase() === username.toLocaleLowerCase(),
@@ -33,6 +45,7 @@ export default function Home() {
 
   useEffect(() => {
     getPersona()
+    Test()
   }, [])
 
   return (
