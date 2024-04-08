@@ -1,0 +1,95 @@
+{
+  "heroes": [
+    {
+      "nome": "gordo",
+      "level": 9870987098787,
+      "exp": 987098098,
+      "gold": 9870987098,
+      "atributos": {
+        "hp": 8768798798,
+        "mp": 7698760876078,
+        "forca": "08760870676",
+        "agilidade": "0870860875087",
+        "destreza": "60708760760",
+        "constituicao": "78076087607",
+        "inteligencia": "6087607076",
+        "str": 8760870676,
+        "agl": 870860875087,
+        "dex": 60708760760,
+        "con": 78076087607,
+        "int": 6087607076
+      },
+      "fobias": [
+        {
+          "monstro": "hbohvuhvoluyv",
+          "quantidade": 8709870
+        },
+        {
+          "monstro": "ijnijbp;iubvpiujhvljhvlhgvluyvluyv;luiyv;uyvluyvluyvl;uyvlu",
+          "quantidade": 8967098608760
+        },
+        {
+          "monstro": "hub;kjb;kjbj",
+          "quantidade": 876087608
+        },
+        {
+          "monstro": "add outra",
+          "quantidade": 2
+        }
+      ],
+      "status": {
+        "maxAtk": 8769876,
+        "maxDef": 786087607
+      },
+      "habilidade": [
+        {
+          "nome": "ljhblhvlhgvlugh",
+          "desgaste": 87698760876,
+          "custoMP": 9765976
+        },
+        {
+          "nome": "kjbljgckhgvljh",
+          "desgaste": 876976,
+          "custoMP": 659765976
+        },
+        {
+          "nome": "ljhvogcouvuy",
+          "desgaste": 87597865765,
+          "custoMP": 65976976
+        },
+        {
+          "nome": "addoutra",
+          "desgaste": 3,
+          "custoMP": 3
+        }
+      ],
+      "inventario": [
+        {
+          "nome": "hjbouyhvluyhvpuyh",
+          "quantidade": 8760876087
+        },
+        {
+          "nome": "jhbljhbljhvblhj",
+          "quantidade": 807608760
+        },
+        {
+          "nome": "jhbljhbljhb;iuv",
+          "quantidade": 876087608760
+        },
+        {
+          "nome": "addoutra",
+          "quantidade": 2
+        }
+      ],
+      "equipamentos": {
+        "cabeca": "ihoihjiu",
+        "peito": "npiubipubpiu",
+        "luvas": "bpiubiubiuyg",
+        "botas": ";iupiugpiupiuyvouyvljhgjlhgjhgkhjgkjhgljhgljhgljhgljhglj",
+        "armaEsquerda": "uyvouyvouyv",
+        "armaDireita": "ouyvuyvoy"
+      },
+      "id": "9z9ig"
+    }
+  ]
+}
