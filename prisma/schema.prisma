@@ -14,11 +14,22 @@ datasource db {
 }
 
 model Hero {
-  id           String @id @default(uuid())
-  nome         String
-  level        Int
-  exp          Int
-  gold         Int
+  id    String @id @default(uuid())
+  nome  String
+  level Int
+  exp   Int
+  gold  Int
+
+  atributos    Atributos[]
+  habilidades  Habilidade[]
+  inventario   Inventario[]
+  equipamentos Equipamento[]
+  fobias       Fobia[]
+  Status       Status[]
+}
+
+model Atributos {
+  id           Int    @id @default(autoincrement())
   hp           Int
   mp           Int
   forca        String
@@ -26,18 +37,16 @@ model Hero {
   destreza     String
   constituicao String
   inteligencia String
-  str          Int
-  agl          Int
-  dex          Int
-  con          Int
-  int          Int
-  maxAtk       Int
-  maxDef       Int
+  heroId       String
+  Hero         Hero   @relation(fields: [heroId], references: [id])
+}
 
-  habilidades  Habilidade[]
-  inventario   Inventario[]
-  equipamentos Equipamento[]
-  fobias       Fobia[]
+model Status {
+  id     Int    @id @default(autoincrement())
+  maxAtk Int
+  maxDef Int
+  hero   Hero   @relation(fields: [heroId], references: [id])
+  heroId String
 }
 
 model Habilidade {
