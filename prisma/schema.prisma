@@ -1,0 +1,78 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Hero {
+  id           String @id @default(uuid())
+  nome         String
+  level        Int
+  exp          Int
+  gold         Int
+  hp           Int
+  mp           Int
+  forca        String
+  agilidade    String
+  destreza     String
+  constituicao String
+  inteligencia String
+  str          Int
+  agl          Int
+  dex          Int
+  con          Int
+  int          Int
+  maxAtk       Int
+  maxDef       Int
+
+  habilidades  Habilidade[]
+  inventario   Inventario[]
+  equipamentos Equipamento[]
+  fobias       Fobia[]
+}
+
+model Habilidade {
+  id       Int    @id @default(autoincrement())
+  nome     String
+  desgaste Int
+  custoMP  Int
+  hero     Hero   @relation(fields: [heroId], references: [id])
+  heroId   String
+}
+
+model Inventario {
+  id         Int    @id @default(autoincrement())
+  nome       String
+  quantidade Int
+  hero       Hero   @relation(fields: [heroId], references: [id])
+  heroId     String
+}
+
+model Equipamento {
+  id           Int    @id @default(autoincrement())
+  cabeca       String
+  peito        String
+  luvas        String
+  botas        String
+  armaEsquerda String
+  armaDireita  String
+  hero         Hero   @relation(fields: [heroId], references: [id])
+  heroId       String
+}
+
+model Fobia {
+  id         Int    @id @default(autoincrement())
+  monstro    String
+  quantidade Int
+  hero       Hero   @relation(fields: [heroId], references: [id])
+  heroId     String
+}
