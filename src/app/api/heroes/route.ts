@@ -5,7 +5,16 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 export async function GET() {
-  const heroes = await prisma.hero.findMany()
+  const heroes = await prisma.hero.findMany({
+    include: {
+      atributos: true,
+      fobias: true,
+      Status: true,
+      habilidade: true,
+      inventario: true,
+      equipamentos: true,
+    },
+  })
 
   return Response.json(heroes)
 }
@@ -25,11 +34,11 @@ export async function POST(request: Request) {
         create: {
           hp: newHero.atributos.hp,
           mp: newHero.atributos.mp,
-          forca: newHero.atributos.forca.toString(), // Convert 'forca' to string
-          agilidade: newHero.atributos.agilidade.toString(), // Convert 'agilidade' to string
-          destreza: newHero.atributos.destreza.toString(), // Convert 'destreza' to string
-          constituicao: newHero.atributos.constituicao.toString(), // Convert 'constituicao' to string
-          inteligencia: newHero.atributos.inteligencia.toString(), // Convert 'inteligencia' to string
+          forca: newHero.atributos.forca.toString(),
+          agilidade: newHero.atributos.agilidade.toString(),
+          destreza: newHero.atributos.destreza.toString(),
+          constituicao: newHero.atributos.constituicao.toString(),
+          inteligencia: newHero.atributos.inteligencia.toString(),
         },
       },
       fobias: {
@@ -67,6 +76,14 @@ export async function POST(request: Request) {
           armaDireita: newHero.equipamentos.armaDireita,
         },
       },
+    },
+    include: {
+      atributos: true,
+      fobias: true,
+      Status: true,
+      habilidade: true,
+      inventario: true,
+      equipamentos: true,
     },
   })
 

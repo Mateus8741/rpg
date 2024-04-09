@@ -14,12 +14,11 @@ datasource db {
 }
 
 model Hero {
-  id    String @id @default(uuid())
-  nome  String
-  level Int
-  exp   Int
-  gold  Int
-
+  id           String        @id @default(uuid())
+  nome         String
+  level        Int
+  exp          Int
+  gold         Int
   atributos    Atributos[]
   habilidade   Habilidade[]
   inventario   Inventario[]
