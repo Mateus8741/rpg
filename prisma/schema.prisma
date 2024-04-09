@@ -21,7 +21,7 @@ model Hero {
   gold  Int
 
   atributos    Atributos[]
-  habilidades  Habilidade[]
+  habilidade   Habilidade[]
   inventario   Inventario[]
   equipamentos Equipamento[]
   fobias       Fobia[]

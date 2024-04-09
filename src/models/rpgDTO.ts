@@ -47,7 +47,7 @@ export interface Status {
 export interface Personagem {
   id: number
   nome: string
-  raca: string
+  raca?: string
   level: number
   exp: number
   gold: number
