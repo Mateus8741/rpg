@@ -30,15 +30,59 @@ export async function GET(request: Request, ctx: any) {
 export async function PUT(request: Request, ctx: any) {
   const { params } = ctx
 
-  // const heroIndex = data.heroes.findIndex((hero) => hero.id === params.id)
+  const hero = await prisma.hero.findUnique({
+    where: {
+      id: params.id,
+    },
+  })
 
-  // if (heroIndex === -1) {
-  //   return NextResponse.json('Hero not found', { status: 404 })
-  // }
+  if (!hero) {
+    return NextResponse.json('Hero not found', { status: 404 })
+  }
 
-  // const updatedHero = await request.json()
+  const updatedHero = await request.json()
 
-  // data.heroes[heroIndex] = { ...data.heroes[heroIndex], ...updatedHero }
+  const updatedHeroData = {
+    ...hero,
+    ...updatedHero,
+  }
 
-  // return NextResponse.json(data.heroes[heroIndex], { status: 200 })
+  const updatedHeroResponse = await prisma.hero.update({
+    where: {
+      id: params.id,
+    },
+    data: updatedHeroData,
+    include: {
+      atributos: true,
+      fobias: true,
+      Status: true,
+      habilidade: true,
+      inventario: true,
+      equipamentos: true,
+    },
+  })
+
+  return NextResponse.json(updatedHeroResponse, { status: 200 })
+}
+
+export async function DELETE(request: Request, ctx: any) {
+  const { params } = ctx
+
+  console.log(params.id)
+
+  await prisma.hero.delete({
+    where: {
+      id: params.id,
+    },
+    include: {
+      atributos: true,
+      fobias: true,
+      Status: true,
+      habilidade: true,
+      inventario: true,
+      equipamentos: true,
+    },
+  })
+
+  return NextResponse.json('Hero deleted', { status: 200 })
 }
