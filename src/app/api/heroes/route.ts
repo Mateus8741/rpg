@@ -1,5 +1,6 @@
 // import data from '@/server/db.json'
 
+import { Personagem } from '@/models/rpgDTO'
 import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
@@ -7,12 +8,9 @@ const prisma = new PrismaClient()
 export async function GET() {
   const heroes = await prisma.hero.findMany({
     include: {
-      atributos: true,
       fobias: true,
-      Status: true,
       habilidade: true,
       inventario: true,
-      equipamentos: true,
     },
   })
 
@@ -20,7 +18,7 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
-  const newHero = await request.json()
+  const newHero: Personagem = await request.json()
 
   console.log(newHero)
 
@@ -30,29 +28,25 @@ export async function POST(request: Request) {
       level: newHero.level,
       exp: newHero.exp,
       gold: newHero.gold,
-      atributos: {
-        create: {
-          hp: newHero.atributos.hp,
-          mp: newHero.atributos.mp,
-          forca: newHero.atributos.forca.toString(),
-          agilidade: newHero.atributos.agilidade.toString(),
-          destreza: newHero.atributos.destreza.toString(),
-          constituicao: newHero.atributos.constituicao.toString(),
-          inteligencia: newHero.atributos.inteligencia.toString(),
-        },
-      },
+
+      hp: newHero.hp,
+      mp: newHero.mp,
+      forca: newHero.forca.toString(),
+      agilidade: newHero.agilidade.toString(),
+      destreza: newHero.destreza.toString(),
+      constituicao: newHero.constituicao.toString(),
+      inteligencia: newHero.inteligencia.toString(),
+
       fobias: {
         create: newHero.fobias.map((fobia: any) => ({
           monstro: fobia.monstro,
           quantidade: fobia.quantidade,
         })),
       },
-      Status: {
-        create: {
-          maxAtk: newHero.status.maxAtk,
-          maxDef: newHero.status.maxDef,
-        },
-      },
+
+      maxAtk: newHero.maxAtk,
+      maxDef: newHero.maxDef,
+
       habilidade: {
         create: newHero.habilidade.map((habilidade: any) => ({
           nome: habilidade.nome,
@@ -66,24 +60,18 @@ export async function POST(request: Request) {
           quantidade: inventario.quantidade,
         })),
       },
-      equipamentos: {
-        create: {
-          cabeca: newHero.equipamentos.cabeca,
-          peito: newHero.equipamentos.peito,
-          luvas: newHero.equipamentos.luvas,
-          botas: newHero.equipamentos.botas,
-          armaEsquerda: newHero.equipamentos.armaEsquerda,
-          armaDireita: newHero.equipamentos.armaDireita,
-        },
-      },
+
+      cabeca: newHero.cabeca ?? '',
+      peito: newHero.peito ?? '',
+      luvas: newHero.luvas ?? '',
+      botas: newHero.botas ?? '',
+      armaEsquerda: newHero.armaEsquerda ?? '',
+      armaDireita: newHero.armaDireita ?? '',
     },
     include: {
-      atributos: true,
       fobias: true,
-      Status: true,
       habilidade: true,
       inventario: true,
-      equipamentos: true,
     },
   })
 

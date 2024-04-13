@@ -1,23 +1,23 @@
 // Interface para os atributos do personagem
-export interface Atributos {
-  hp: number
-  mp: number
-  forca: number
-  agilidade: number
-  destreza: number
-  constituicao: number
-  inteligencia: number
-}
+// export interface Atributos {
+//   hp: number
+//   mp: number
+//   forca: number
+//   agilidade: number
+//   destreza: number
+//   constituicao: number
+//   inteligencia: number
+// }
 
 // Interface para os equipamentos do personagem
-export interface Equipamentos {
-  cabeca?: string
-  peito?: string
-  luvas?: string
-  botas?: string
-  armaEsquerda?: string
-  armaDireita?: string
-}
+// export interface Equipamentos {
+//   cabeca?: string
+//   peito?: string
+//   luvas?: string
+//   botas?: string
+//   armaEsquerda?: string
+//   armaDireita?: string
+// }
 
 // Interface para as fobias do personagem
 export interface Fobias {
@@ -38,10 +38,10 @@ export interface Inventario {
   quantidade: number
 }
 
-export interface Status {
-  maxAtk: number
-  maxDef: number
-}
+// export interface Status {
+//   maxAtk: number
+//   maxDef: number
+// }
 
 // Interface para o personagem em geral
 export interface Personagem {
@@ -51,10 +51,27 @@ export interface Personagem {
   level: number
   exp: number
   gold: number
-  atributos: Atributos
-  equipamentos: Equipamentos
+
+  hp: number
+  mp: number
+  forca: number
+  agilidade: number
+  destreza: number
+  constituicao: number
+  inteligencia: number
+
+  cabeca?: string
+  peito?: string
+  luvas?: string
+  botas?: string
+  armaEsquerda?: string
+  armaDireita?: string
+
   fobias: Fobias[]
-  status: Status
+
+  maxAtk: number
+  maxDef: number
+
   habilidade: Habilidade[]
   inventario: Inventario[]
 }

@@ -14,21 +14,15 @@ datasource db {
 }
 
 model Hero {
-  id           String        @id @default(uuid())
-  nome         String
-  level        Int
-  exp          Int
-  gold         Int
-  atributos    Atributos[]
-  habilidade   Habilidade[]
-  inventario   Inventario[]
-  equipamentos Equipamento[]
-  fobias       Fobia[]
-  Status       Status[]
-}
+  id    String @id @default(uuid())
+  nome  String
+  level Int
+  exp   Int
+  gold  Int
 
-model Atributos {
-  id           Int    @id @default(autoincrement())
+  maxAtk Int
+  maxDef Int
+
   hp           Int
   mp           Int
   forca        String
@@ -36,17 +30,31 @@ model Atributos {
   destreza     String
   constituicao String
   inteligencia String
-  heroId       String
-  Hero         Hero   @relation(fields: [heroId], references: [id])
+
+  cabeca       String
+  peito        String
+  luvas        String
+  botas        String
+  armaEsquerda String
+  armaDireita  String
+
+  habilidade Habilidade[]
+  inventario Inventario[]
+  fobias     Fobia[]
 }
 
-model Status {
-  id     Int    @id @default(autoincrement())
-  maxAtk Int
-  maxDef Int
-  hero   Hero   @relation(fields: [heroId], references: [id])
-  heroId String
-}
+// model Atributos {
+//   id           Int    @id @default(autoincrement())
+
+//   heroId       String
+// }
+
+// model Status {
+//   id     Int    @id @default(autoincrement())
+
+//   hero   Hero   @relation(fields: [heroId], references: [id])
+//   heroId String
+// }
 
 model Habilidade {
   id       Int    @id @default(autoincrement())
@@ -65,17 +73,11 @@ model Inventario {
   heroId     String
 }
 
-model Equipamento {
-  id           Int    @id @default(autoincrement())
-  cabeca       String
-  peito        String
-  luvas        String
-  botas        String
-  armaEsquerda String
-  armaDireita  String
-  hero         Hero   @relation(fields: [heroId], references: [id])
-  heroId       String
-}
+// model Equipamento {
+//   id           Int    @id @default(autoincrement())
+
+//   heroId       String
+// }
 
 model Fobia {
   id         Int    @id @default(autoincrement())

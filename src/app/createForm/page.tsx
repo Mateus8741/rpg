@@ -21,17 +21,20 @@ export default function CreateForm() {
       level: '',
       exp: '',
       gold: '',
-      atributos: {
-        hp: '',
-        mp: '',
-        forca: '',
-        agilidade: '',
-        destreza: '',
-        constituicao: '',
-        inteligencia: '',
-      },
+
+      hp: '',
+      mp: '',
+      forca: '',
+      agilidade: '',
+      destreza: '',
+      constituicao: '',
+      inteligencia: '',
+
       fobias: [{ monstro: '', quantidade: '' }],
-      status: { maxAtk: '', maxDef: '' },
+
+      maxAtk: '',
+      maxDef: '',
+
       habilidade: [
         {
           nome: '',
@@ -45,14 +48,13 @@ export default function CreateForm() {
           quantidade: '',
         },
       ],
-      equipamentos: {
-        cabeca: '',
-        peito: '',
-        luvas: '',
-        botas: '',
-        armaEsquerda: '',
-        armaDireita: '',
-      },
+
+      cabeca: '',
+      peito: '',
+      luvas: '',
+      botas: '',
+      armaEsquerda: '',
+      armaDireita: '',
     },
 
     mode: 'onChange',
@@ -93,22 +95,21 @@ export default function CreateForm() {
       exp: Number(data.exp),
       gold: Number(data.gold),
       atributos: {
-        ...data.atributos,
-        hp: Number(data.atributos.hp),
-        mp: Number(data.atributos.mp),
-        forca: Number(data.atributos.forca),
-        agilidade: Number(data.atributos.agilidade),
-        destreza: Number(data.atributos.destreza),
-        constituicao: Number(data.atributos.constituicao),
-        inteligencia: Number(data.atributos.inteligencia),
+        hp: Number(data.hp),
+        mp: Number(data.mp),
+        str: Number(data.forca),
+        agl: Number(data.agilidade),
+        dex: Number(data.destreza),
+        con: Number(data.constituicao),
+        int: Number(data.inteligencia),
       },
       fobias: data.fobias.map((phobia) => ({
         ...phobia,
         quantidade: Number(phobia.quantidade),
       })),
       status: {
-        maxAtk: Number(data.status.maxAtk),
-        maxDef: Number(data.status.maxDef),
+        maxAtk: Number(data.maxAtk),
+        maxDef: Number(data.maxDef),
       },
       habilidade: data.habilidade.map((ability) => ({
         ...ability,
@@ -120,12 +121,12 @@ export default function CreateForm() {
         quantidade: Number(item.quantidade),
       })),
       equipamentos: {
-        cabeca: data.equipamentos.cabeca,
-        peito: data.equipamentos.peito,
-        luvas: data.equipamentos.luvas,
-        botas: data.equipamentos.botas,
-        armaEsquerda: data.equipamentos.armaEsquerda,
-        armaDireita: data.equipamentos.armaDireita,
+        cabeca: data.cabeca,
+        peito: data.peito,
+        luvas: data.luvas,
+        botas: data.botas,
+        armaEsquerda: data.armaEsquerda,
+        armaDireita: data.armaDireita,
       },
     })
 
@@ -197,39 +198,23 @@ export default function CreateForm() {
             <h1 className="text-3xl font-bold mb-5">Equipamentos</h1>
 
             <div className="grid grid-cols-2 gap-x-2">
-              <FormTextInput
-                control={control}
-                name="equipamentos.cabeca"
-                label="Capacete"
-              />
+              <FormTextInput control={control} name="cabeca" label="Capacete" />
+
+              <FormTextInput control={control} name="peito" label="Peito" />
+
+              <FormTextInput control={control} name="luvas" label="Luvas" />
+
+              <FormTextInput control={control} name="botas" label="Botas" />
 
               <FormTextInput
                 control={control}
-                name="equipamentos.peito"
-                label="Peito"
-              />
-
-              <FormTextInput
-                control={control}
-                name="equipamentos.luvas"
-                label="Luvas"
-              />
-
-              <FormTextInput
-                control={control}
-                name="equipamentos.botas"
-                label="Botas"
-              />
-
-              <FormTextInput
-                control={control}
-                name="equipamentos.armaEsquerda"
+                name="armaEsquerda"
                 label="Arma Esquerda"
               />
 
               <FormTextInput
                 control={control}
-                name="equipamentos.armaDireita"
+                name="armaDireita"
                 label="Arma Direita"
               />
             </div>
@@ -241,49 +226,49 @@ export default function CreateForm() {
             <div className="grid grid-cols-2 gap-x-2">
               <FormTextInput
                 control={control}
-                name="atributos.hp"
+                name="hp"
                 label="HP"
                 type="number"
               />
 
               <FormTextInput
                 control={control}
-                name="atributos.mp"
+                name="mp"
                 label="MP"
                 type="number"
               />
 
               <FormTextInput
                 control={control}
-                name="atributos.forca"
+                name="forca"
                 label="Força"
                 type="number"
               />
 
               <FormTextInput
                 control={control}
-                name="atributos.agilidade"
+                name="agilidade"
                 label="Agilidade"
                 type="number"
               />
 
               <FormTextInput
                 control={control}
-                name="atributos.destreza"
+                name="destreza"
                 label="Destreza"
                 type="number"
               />
 
               <FormTextInput
                 control={control}
-                name="atributos.constituicao"
+                name="constituicao"
                 label="Constituição"
                 type="number"
               />
 
               <FormTextInput
                 control={control}
-                name="atributos.inteligencia"
+                name="inteligencia"
                 label="Inteligêcia"
                 type="number"
               />
@@ -329,14 +314,14 @@ export default function CreateForm() {
             <div className="grid grid-cols-2 gap-x-2">
               <FormTextInput
                 control={control}
-                name="status.maxAtk"
+                name="maxAtk"
                 label="MaxAtk"
                 type="number"
               />
 
               <FormTextInput
                 control={control}
-                name="status.maxDef"
+                name="maxDef"
                 label="MaxDef"
                 type="number"
               />

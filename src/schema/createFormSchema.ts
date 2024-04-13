@@ -6,16 +6,23 @@ export const createFormSchema = z.object({
   level: z.string().min(1).max(100),
   exp: z.string().min(0).max(1000000),
   gold: z.string().min(0).max(1000000),
+  maxAtk: z.string().min(0).max(1000000),
+  maxDef: z.string().min(0).max(1000000),
 
-  atributos: z.object({
-    hp: z.string().min(0).max(1000000),
-    mp: z.string().min(0).max(1000000),
-    forca: z.string().min(0).max(1000000),
-    agilidade: z.string().min(0).max(1000000),
-    destreza: z.string().min(0).max(1000000),
-    constituicao: z.string().min(0).max(1000000),
-    inteligencia: z.string().min(0).max(1000000),
-  }),
+  cabeca: z.string(),
+  peito: z.string(),
+  luvas: z.string(),
+  botas: z.string(),
+  armaEsquerda: z.string(),
+  armaDireita: z.string(),
+
+  hp: z.string().min(0).max(1000000),
+  mp: z.string().min(0).max(1000000),
+  forca: z.string().min(0).max(1000000),
+  agilidade: z.string().min(0).max(1000000),
+  destreza: z.string().min(0).max(1000000),
+  constituicao: z.string().min(0).max(1000000),
+  inteligencia: z.string().min(0).max(1000000),
 
   fobias: z.array(
     z.object({
@@ -23,11 +30,6 @@ export const createFormSchema = z.object({
       quantidade: z.string().min(0).max(1000000),
     }),
   ),
-
-  status: z.object({
-    maxAtk: z.string().min(0).max(1000000),
-    maxDef: z.string().min(0).max(1000000),
-  }),
 
   habilidade: z.array(
     z.object({
@@ -43,15 +45,6 @@ export const createFormSchema = z.object({
       quantidade: z.string().min(0).max(1000000),
     }),
   ),
-
-  equipamentos: z.object({
-    cabeca: z.string(),
-    peito: z.string(),
-    luvas: z.string(),
-    botas: z.string(),
-    armaEsquerda: z.string(),
-    armaDireita: z.string(),
-  }),
 })
 
 export type CreateFormSchema = z.infer<typeof createFormSchema>

@@ -11,12 +11,9 @@ export async function GET(request: Request, ctx: any) {
       id: params.id,
     },
     include: {
-      atributos: true,
       fobias: true,
-      Status: true,
       habilidade: true,
       inventario: true,
-      equipamentos: true,
     },
   })
 
@@ -53,12 +50,9 @@ export async function PUT(request: Request, ctx: any) {
     },
     data: updatedHeroData,
     include: {
-      atributos: true,
       fobias: true,
-      Status: true,
       habilidade: true,
       inventario: true,
-      equipamentos: true,
     },
   })
 
@@ -75,12 +69,9 @@ export async function DELETE(request: Request, ctx: any) {
       id: params.id,
     },
     include: {
-      atributos: true,
       fobias: true,
-      Status: true,
       habilidade: true,
       inventario: true,
-      equipamentos: true,
     },
   })
 

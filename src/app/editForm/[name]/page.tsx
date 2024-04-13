@@ -50,15 +50,15 @@ export default function EditForm({ params: { name } }: EditFormProps) {
       level: persona?.level?.toString() || '',
       exp: persona?.exp?.toString() || '',
       gold: persona?.gold?.toString() || '',
-      atributos: {
-        hp: persona?.atributos?.hp?.toString() || '',
-        mp: persona?.atributos?.mp?.toString() || '',
-        forca: persona?.atributos?.forca?.toString() || '',
-        agilidade: persona?.atributos?.agilidade?.toString() || '',
-        destreza: persona?.atributos?.destreza?.toString() || '',
-        constituicao: persona?.atributos?.constituicao?.toString() || '',
-        inteligencia: persona?.atributos?.inteligencia?.toString() || '',
-      },
+
+      hp: persona?.hp?.toString() || '',
+      mp: persona?.mp?.toString() || '',
+      forca: persona?.forca?.toString() || '',
+      agilidade: persona?.agilidade?.toString() || '',
+      destreza: persona?.destreza?.toString() || '',
+      constituicao: persona?.constituicao?.toString() || '',
+      inteligencia: persona?.inteligencia?.toString() || '',
+
       fobias: persona?.fobias.map((phobia) => ({
         monstro: phobia.monstro,
         quantidade: phobia.quantidade.toString(),
@@ -68,10 +68,10 @@ export default function EditForm({ params: { name } }: EditFormProps) {
           quantidade: '',
         },
       ],
-      status: {
-        maxAtk: persona?.status?.maxAtk?.toString() || '',
-        maxDef: persona?.status?.maxDef?.toString() || '',
-      },
+
+      maxAtk: persona?.maxAtk?.toString() || '',
+      maxDef: persona?.maxDef?.toString() || '',
+
       habilidade: persona?.habilidade.map((ability) => ({
         nome: ability.nome,
         desgaste: ability.desgaste.toString(),
@@ -92,14 +92,13 @@ export default function EditForm({ params: { name } }: EditFormProps) {
           quantidade: '',
         },
       ],
-      equipamentos: {
-        cabeca: persona?.equipamentos?.cabeca || '',
-        peito: persona?.equipamentos?.peito || '',
-        luvas: persona?.equipamentos?.luvas || '',
-        botas: persona?.equipamentos?.botas || '',
-        armaEsquerda: persona?.equipamentos?.armaEsquerda || '',
-        armaDireita: persona?.equipamentos?.armaDireita || '',
-      },
+
+      cabeca: persona?.cabeca || '',
+      peito: persona?.peito || '',
+      luvas: persona?.luvas || '',
+      botas: persona?.botas || '',
+      armaEsquerda: persona?.armaEsquerda || '',
+      armaDireita: persona?.armaDireita || '',
     },
 
     mode: 'onChange',
@@ -138,36 +137,40 @@ export default function EditForm({ params: { name } }: EditFormProps) {
       level: Number(data.level),
       exp: Number(data.exp),
       gold: Number(data.gold),
-      atributos: {
-        ...data.atributos,
-        hp: Number(data.atributos.hp),
-        mp: Number(data.atributos.mp),
-        str: Number(data.atributos.forca),
-        agl: Number(data.atributos.agilidade),
-        dex: Number(data.atributos.destreza),
-        con: Number(data.atributos.constituicao),
-        int: Number(data.atributos.inteligencia),
-      },
+
+      hp: Number(data.hp),
+      mp: Number(data.mp),
+      str: data.forca,
+      agl: data.agilidade,
+      dex: data.destreza,
+      con: data.constituicao,
+      int: data.inteligencia,
+
       fobias: data.fobias.map((phobia) => ({
         ...phobia,
         quantidade: Number(phobia.quantidade),
       })),
-      status: {
-        maxAtk: Number(data.status.maxAtk),
-        maxDef: Number(data.status.maxDef),
-      },
+
+      maxAtk: Number(data.maxAtk),
+      maxDef: Number(data.maxDef),
+
       habilidade: data.habilidade.map((ability) => ({
         ...ability,
         desgaste: Number(ability.desgaste),
         custoMP: Number(ability.custoMP),
       })),
+
       inventario: data.inventario.map((item) => ({
         ...item,
         quantidade: Number(item.quantidade),
       })),
-      equipamentos: {
-        ...data.equipamentos,
-      },
+
+      cabeca: data.cabeca,
+      peito: data.peito,
+      luvas: data.luvas,
+      botas: data.botas,
+      armaEsquerda: data.armaEsquerda,
+      armaDireita: data.armaDireita,
     })
 
     if (persona?.nome === undefined) {
@@ -242,39 +245,23 @@ export default function EditForm({ params: { name } }: EditFormProps) {
             <h1 className="text-3xl font-bold mb-5">Equipamentos</h1>
 
             <div className="grid grid-cols-2 gap-x-2">
-              <FormTextInput
-                control={control}
-                name="equipamentos.cabeca"
-                label="Capacete"
-              />
+              <FormTextInput control={control} name="cabeca" label="Capacete" />
+
+              <FormTextInput control={control} name="peito" label="Peito" />
+
+              <FormTextInput control={control} name="luvas" label="Luvas" />
+
+              <FormTextInput control={control} name="botas" label="Botas" />
 
               <FormTextInput
                 control={control}
-                name="equipamentos.peito"
-                label="Peito"
-              />
-
-              <FormTextInput
-                control={control}
-                name="equipamentos.luvas"
-                label="Luvas"
-              />
-
-              <FormTextInput
-                control={control}
-                name="equipamentos.botas"
-                label="Botas"
-              />
-
-              <FormTextInput
-                control={control}
-                name="equipamentos.armaEsquerda"
+                name="armaEsquerda"
                 label="Arma Esquerda"
               />
 
               <FormTextInput
                 control={control}
-                name="equipamentos.armaDireita"
+                name="armaDireita"
                 label="Arma Direita"
               />
             </div>
@@ -286,49 +273,49 @@ export default function EditForm({ params: { name } }: EditFormProps) {
             <div className="grid grid-cols-2 gap-x-2">
               <FormTextInput
                 control={control}
-                name="atributos.hp"
+                name="hp"
                 label="HP"
                 type="number"
               />
 
               <FormTextInput
                 control={control}
-                name="atributos.mp"
+                name="mp"
                 label="MP"
                 type="number"
               />
 
               <FormTextInput
                 control={control}
-                name="atributos.forca"
+                name="forca"
                 label="Força"
                 type="number"
               />
 
               <FormTextInput
                 control={control}
-                name="atributos.agilidade"
+                name="agilidade"
                 label="Agilidade"
                 type="number"
               />
 
               <FormTextInput
                 control={control}
-                name="atributos.destreza"
+                name="destreza"
                 label="Destreza"
                 type="number"
               />
 
               <FormTextInput
                 control={control}
-                name="atributos.constituicao"
+                name="constituicao"
                 label="Constituição"
                 type="number"
               />
 
               <FormTextInput
                 control={control}
-                name="atributos.inteligencia"
+                name="inteligencia"
                 label="Inteligêcia"
                 type="number"
               />
@@ -374,14 +361,14 @@ export default function EditForm({ params: { name } }: EditFormProps) {
             <div className="grid grid-cols-2 gap-x-2">
               <FormTextInput
                 control={control}
-                name="status.maxAtk"
+                name="maxAtk"
                 label="MaxAtk"
                 type="number"
               />
 
               <FormTextInput
                 control={control}
-                name="status.maxDef"
+                name="maxDef"
                 label="MaxDef"
                 type="number"
               />

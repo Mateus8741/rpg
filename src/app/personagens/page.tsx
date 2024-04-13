@@ -11,6 +11,7 @@ export default function AllForms() {
   async function getPersona() {
     const perso = await api.get('')
     setData(perso.data)
+    console.log(perso.data)
   }
 
   useEffect(() => {
