@@ -37,6 +37,8 @@ export default function EditForm({ params: { name } }: EditFormProps) {
 
   console.log(persona)
 
+  console.log(persona?.id)
+
   useEffect(() => {
     getPersonaToEdit()
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -140,14 +142,15 @@ export default function EditForm({ params: { name } }: EditFormProps) {
 
       hp: Number(data.hp),
       mp: Number(data.mp),
-      str: data.forca,
-      agl: data.agilidade,
-      dex: data.destreza,
-      con: data.constituicao,
-      int: data.inteligencia,
+      forca: data.forca,
+      agilidade: data.agilidade,
+      destreza: data.destreza,
+      constituicao: data.constituicao,
+      inteligencia: data.inteligencia,
 
       fobias: data.fobias.map((phobia) => ({
         ...phobia,
+        monstro: phobia.monstro,
         quantidade: Number(phobia.quantidade),
       })),
 
