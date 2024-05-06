@@ -94,40 +94,41 @@ export default function CreateForm() {
       level: Number(data.level),
       exp: Number(data.exp),
       gold: Number(data.gold),
-      atributos: {
-        hp: Number(data.hp),
-        mp: Number(data.mp),
-        str: Number(data.forca),
-        agl: Number(data.agilidade),
-        dex: Number(data.destreza),
-        con: Number(data.constituicao),
-        int: Number(data.inteligencia),
-      },
+
+      hp: Number(data.hp),
+      mp: Number(data.mp),
+
+      forca: Number(data.forca),
+      agilidade: Number(data.agilidade),
+      destreza: Number(data.destreza),
+      constituicao: Number(data.constituicao),
+      inteligencia: Number(data.inteligencia),
+
       fobias: data.fobias.map((phobia) => ({
         ...phobia,
         quantidade: Number(phobia.quantidade),
       })),
-      status: {
-        maxAtk: Number(data.maxAtk),
-        maxDef: Number(data.maxDef),
-      },
+
+      maxAtk: Number(data.maxAtk),
+      maxDef: Number(data.maxDef),
+
       habilidade: data.habilidade.map((ability) => ({
         ...ability,
         desgaste: Number(ability.desgaste),
         custoMP: Number(ability.custoMP),
       })),
+
       inventario: data.inventario.map((item) => ({
         ...item,
         quantidade: Number(item.quantidade),
       })),
-      equipamentos: {
-        cabeca: data.cabeca,
-        peito: data.peito,
-        luvas: data.luvas,
-        botas: data.botas,
-        armaEsquerda: data.armaEsquerda,
-        armaDireita: data.armaDireita,
-      },
+
+      cabeca: data.cabeca,
+      peito: data.peito,
+      luvas: data.luvas,
+      botas: data.botas,
+      armaEsquerda: data.armaEsquerda,
+      armaDireita: data.armaDireita,
     })
 
     push(`/personagens/${name}`)
