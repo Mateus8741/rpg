@@ -16,6 +16,8 @@ export default function Home() {
     setData(perso.data)
   }
 
+  console.log(data)
+
   const persona = data.find(
     (persona) =>
       persona.nome.toLocaleLowerCase() === username.toLocaleLowerCase(),

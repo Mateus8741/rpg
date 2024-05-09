@@ -1,8 +1,8 @@
 import { z } from 'zod'
 
 export const createFormSchema = z.object({
-  id: z.string().optional(),
   nome: z.string().min(3).max(20),
+
   level: z.string().min(1).max(100),
   exp: z.string().min(0).max(1000000),
   gold: z.string().min(0).max(1000000),
@@ -18,6 +18,7 @@ export const createFormSchema = z.object({
 
   hp: z.string().min(0).max(1000000),
   mp: z.string().min(0).max(1000000),
+
   forca: z.string().min(0).max(1000000),
   agilidade: z.string().min(0).max(1000000),
   destreza: z.string().min(0).max(1000000),

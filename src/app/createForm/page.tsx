@@ -88,9 +88,97 @@ export default function CreateForm() {
   })
 
   function handleSubmitForm(data: CreateFormSchema) {
+    // api.post('', {
+    //   // id: Math.random().toString(36).substring(7),
+    //   nome: data.nome,
+    //   level: Number(data.level),
+    //   exp: Number(data.exp),
+    //   gold: Number(data.gold),
+
+    //   hp: Number(data.hp),
+    //   mp: Number(data.mp),
+
+    //   forca: Number(data.forca),
+    //   agilidade: Number(data.agilidade),
+    //   destreza: Number(data.destreza),
+    //   constituicao: Number(data.constituicao),
+    //   inteligencia: Number(data.inteligencia),
+
+    //   fobias: data.fobias.map((phobia) => ({
+    //     ...phobia,
+    //     quantidade: Number(phobia.quantidade),
+    //   })),
+
+    //   maxAtk: Number(data.maxAtk),
+    //   maxDef: Number(data.maxDef),
+
+    //   habilidade: data.habilidade.map((ability) => ({
+    //     ...ability,
+    //     desgaste: Number(ability.desgaste),
+    //     custoMP: Number(ability.custoMP),
+    //   })),
+
+    //   inventario: data.inventario.map((item) => ({
+    //     ...item,
+    //     quantidade: Number(item.quantidade),
+    //   })),
+
+    //   cabeca: data.cabeca,
+    //   peito: data.peito,
+    //   luvas: data.luvas,
+    //   botas: data.botas,
+    //   armaEsquerda: data.armaEsquerda,
+    //   armaDireita: data.armaDireita,
+    // })
+
+    // push(`/personagens/${name}`)
+
+    // api.post('', {
+    //   // id: Math.random().toString(36).substring(7),
+    //   nome: data.nome,
+    //   level: data.level,
+    //   exp: data.exp,
+    //   gold: data.gold,
+
+    //   hp: data.hp,
+    //   mp: data.mp,
+
+    //   forca: data.forca,
+    //   agilidade: data.agilidade,
+    //   destreza: data.destreza,
+    //   constituicao: data.constituicao,
+    //   inteligencia: data.inteligencia,
+
+    //   fobias: data.fobias.map((phobia) => ({
+    //     ...phobia,
+    //     quantidade: phobia.quantidade,
+    //   })),
+
+    //   maxAtk: data.maxAtk,
+    //   maxDef: data.maxDef,
+
+    //   habilidade: data.habilidade.map((ability) => ({
+    //     ...ability,
+    //     desgaste: ability.desgaste,
+    //     custoMP: ability.custoMP,
+    //   })),
+
+    //   inventario: data.inventario.map((item) => ({
+    //     ...item,
+    //     quantidade: item.quantidade,
+    //   })),
+
+    //   cabeca: data.cabeca,
+    //   peito: data.peito,
+    //   luvas: data.luvas,
+    //   botas: data.botas,
+    //   armaEsquerda: data.armaEsquerda,
+    //   armaDireita: data.armaDireita,
+    // })
+
     api.post('', {
-      id: Math.random().toString(36).substring(7),
       nome: data.nome,
+
       level: Number(data.level),
       exp: Number(data.exp),
       gold: Number(data.gold),
@@ -98,11 +186,11 @@ export default function CreateForm() {
       hp: Number(data.hp),
       mp: Number(data.mp),
 
-      forca: Number(data.forca),
-      agilidade: Number(data.agilidade),
-      destreza: Number(data.destreza),
-      constituicao: Number(data.constituicao),
-      inteligencia: Number(data.inteligencia),
+      forca: data.forca,
+      agilidade: data.agilidade,
+      destreza: data.destreza,
+      constituicao: data.constituicao,
+      inteligencia: data.inteligencia,
 
       fobias: data.fobias.map((phobia) => ({
         ...phobia,
@@ -131,7 +219,48 @@ export default function CreateForm() {
       armaDireita: data.armaDireita,
     })
 
-    push(`/personagens/${name}`)
+    console.log({
+      nome: data.nome,
+
+      level: Number(data.level),
+      exp: Number(data.exp),
+      gold: Number(data.gold),
+
+      hp: Number(data.hp),
+      mp: Number(data.mp),
+
+      forca: data.forca,
+      agilidade: data.agilidade,
+      destreza: data.destreza,
+      constituicao: data.constituicao,
+      inteligencia: data.inteligencia,
+
+      fobias: data.fobias.map((phobia) => ({
+        ...phobia,
+        quantidade: Number(phobia.quantidade),
+      })),
+
+      maxAtk: Number(data.maxAtk),
+      maxDef: Number(data.maxDef),
+
+      habilidade: data.habilidade.map((ability) => ({
+        ...ability,
+        desgaste: Number(ability.desgaste),
+        custoMP: Number(ability.custoMP),
+      })),
+
+      inventario: data.inventario.map((item) => ({
+        ...item,
+        quantidade: Number(item.quantidade),
+      })),
+
+      cabeca: data.cabeca,
+      peito: data.peito,
+      luvas: data.luvas,
+      botas: data.botas,
+      armaEsquerda: data.armaEsquerda,
+      armaDireita: data.armaDireita,
+    })
   }
 
   function handleCancel() {
